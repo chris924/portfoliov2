@@ -8,6 +8,7 @@ import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
 import { motion } from "framer-motion";
+import RevealOnScroll from "@/components/animations/revealonscroll";
 
 export default function IndexPage() {
   return (
@@ -76,6 +77,7 @@ export default function IndexPage() {
           <Snippet hideCopyButton hideSymbol variant="bordered">
             <span>
               Get started by editing{" "}
+              <RevealOnScroll>TEST</RevealOnScroll>
               <Code color="primary">pages/index.tsx</Code>
             </span>
           </Snippet>
