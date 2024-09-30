@@ -28,9 +28,10 @@ const HoverInHackerTyper: React.FC<{ children: string, hoverFrom: string }> = ({
   const initialPosition = getInitialPosition();
 
   useEffect(() => {
+
     let currentIndex = 0;
 
-    const intervalTime = children.length < 5 ? 200 : 65;
+    const intervalTime = children.length < 6 ? 200 : 85;
 
     const updateText = () => {
       if (currentIndex < children.length) {
@@ -56,7 +57,7 @@ const HoverInHackerTyper: React.FC<{ children: string, hoverFrom: string }> = ({
     <motion.div
       initial={{ opacity: 0, x: initialPosition.x, y: initialPosition.y }}
       animate={{ opacity: 1, x: 0, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5}}
     >
       {displayedText}
     </motion.div>
