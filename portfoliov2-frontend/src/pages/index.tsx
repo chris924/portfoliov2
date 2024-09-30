@@ -9,10 +9,44 @@ import { GithubIcon } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
 import { motion } from "framer-motion";
 import RevealOnScroll from "@/components/animations/revealonscroll";
+import { useState } from "react";
+import LevelViewer from "@/components/animations/leverviewer";
+import "../styles/globals.css"
+
+
+
 
 export default function IndexPage() {
+
+  const leverUrl = "/models/lever.glb";
+
+
+  const [leverTriggered, setLeverTriggered] = useState(false);
+  const [removeCanvas, setRemoveCanvas] = useState(false);
+  const [overlayVisible, setOverlayVisible] = useState(true);
+  
+  const handleLeverTrigger = () => {
+    setLeverTriggered(true);
+    setTimeout(() => {
+      setRemoveCanvas(true);
+      setOverlayVisible(false);
+    }, 3000); 
+  };
+
+
   return (
-    <DefaultLayout>
+    <>
+      <div className={`dark-overlay ${overlayVisible ? 'visible' : 'hidden'}`}> 
+        {!removeCanvas && (
+          <>
+          <LevelViewer modelUrl={leverUrl} onLeverTrigger={handleLeverTrigger} /></>
+          
+        )}  
+      </div>
+
+      {!overlayVisible && (
+          <>
+           <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
         <div className="inline-block max-w-lg text-center justify-center">
 
@@ -82,7 +116,14 @@ export default function IndexPage() {
             </span>
           </Snippet>
         </div>
+
+           
+
       </section>
     </DefaultLayout>
+          </>
+        )}
+   
+</>
   );
 }
