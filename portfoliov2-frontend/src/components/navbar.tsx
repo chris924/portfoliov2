@@ -24,6 +24,7 @@ import {
   SearchIcon,
 } from "@/components/icons";
 import { Logo } from "@/components/icons";
+import HoverInHackerTyper from "./animations/hoverinhackertyper";
 
 export const Navbar = () => {
   const searchInput = (
@@ -57,7 +58,8 @@ export const Navbar = () => {
             href="/"
           >
             <Logo />
-            <p className="font-bold text-inherit">ACME</p>
+            
+            <HoverInHackerTyper hoverFrom="up">Chris Portfolio Site</HoverInHackerTyper>
           </Link>
         </NavbarBrand>
         <div className="hidden lg:flex gap-4 justify-start ml-2">
@@ -71,7 +73,7 @@ export const Navbar = () => {
                 color="foreground"
                 href={item.href}
               >
-                {item.label}
+                <HoverInHackerTyper hoverFrom="up">{item.label}</HoverInHackerTyper>
               </Link>
             </NavbarItem>
           ))}
@@ -133,7 +135,7 @@ export const Navbar = () => {
                 href="#"
                 size="lg"
               >
-                {item.label}
+               <HoverInHackerTyper hoverFrom="up">{item.label}</HoverInHackerTyper>
               </Link>
             </NavbarMenuItem>
           ))}
