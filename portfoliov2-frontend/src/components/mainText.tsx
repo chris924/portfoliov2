@@ -1,6 +1,7 @@
 import DefaultLayout from "@/layouts/default"
 import { motion } from "framer-motion"
 import { title, subtitle } from "./primitives"
+import AboutText from "./aboutText"
 
 
 export default function MainText() {
@@ -30,7 +31,7 @@ export default function MainText() {
               initial={{ opacity: 0, x: 20 }} 
               animate={{ opacity: 1, x: 0 }} 
               transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-              className={title({ color: "green", class: "tracking-widest font-unisansheavy text-opacity-0" })}
+              className={title({ color: "green", class: "tracking-widest font-unisansheavy" })}
             >
               I'M CHRIS
             </motion.span>
@@ -45,6 +46,8 @@ export default function MainText() {
               </div>
             </div>              
     
+
+            <AboutText/>
           </section>
         </DefaultLayout>
               </>

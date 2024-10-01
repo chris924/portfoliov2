@@ -11,7 +11,7 @@ interface RevealOnScrollProps {
 export default function RevealOnScroll({children}: RevealOnScrollProps) {
   const controls = useAnimation();
   const [ref, inView] = useInView({
-    threshold: 0.2, // 20%
+    threshold: 0.4, // 
   });
 
   useEffect(() => {

@@ -13,6 +13,7 @@ import { useState } from "react";
 import LevelViewer from "@/components/animations/leverviewer";
 import "../styles/globals.css"
 import MainText from "@/components/mainText";
+import AboutText from "@/components/aboutText";
 
 
 
@@ -46,9 +47,9 @@ export default function IndexPage() {
       </div>
 
       {!overlayVisible && (
-          
+          <>
           <MainText/>
-           
+           </>
         )}
    
 </>
