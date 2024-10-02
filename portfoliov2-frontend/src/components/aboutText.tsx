@@ -24,10 +24,10 @@ export default function AboutText() {
                   </div>
                    
             {/* Right side - Text */}
-            <div className="md:w-1/2 flex flex-col items-center text-center gap-20">
+            <div className="md:w-1/2 flex flex-col items-center text-justify gap-10">
             <RevealOnScroll>
               <div className="text-5xl font-medium">          
-                A Brief Intro Who I Am
+                A Brief intro, who am I
               </div>
               </RevealOnScroll>
               

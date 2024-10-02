@@ -4,11 +4,12 @@ import { useInView } from "react-intersection-observer";
 
 
 interface RevealOnScrollProps {
-    children: React.ReactNode; 
+    children: React.ReactNode;
+    onRevealComplete?: () => void; 
   }
 
 
-export default function RevealOnScroll({children}: RevealOnScrollProps) {
+export default function RevealOnScroll({children, onRevealComplete}: RevealOnScrollProps) {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     threshold: 0.4, // 
@@ -16,11 +17,13 @@ export default function RevealOnScroll({children}: RevealOnScrollProps) {
 
   useEffect(() => {
     if (inView) {
-      controls.start("visible");
-    } else {
-      controls.start("hidden");
+      controls.start("visible").then(() => {
+        if (onRevealComplete) {
+          onRevealComplete();
+        }
+      });
     }
-  }, [controls, inView]);
+  }, [controls, inView, onRevealComplete]);
 
   const variants = {
     hidden: { opacity: 0, y: 50 },

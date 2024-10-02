@@ -2,6 +2,7 @@ import DefaultLayout from "@/layouts/default"
 import { motion } from "framer-motion"
 import { title, subtitle } from "./primitives"
 import AboutText from "./aboutText"
+import ServicesText from "./servicesText"
 
 
 export default function MainText() {
@@ -48,6 +49,9 @@ export default function MainText() {
     
 
             <AboutText/>
+            <ServicesText/>
+
+
           </section>
         </DefaultLayout>
               </>
