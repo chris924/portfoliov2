@@ -42,9 +42,24 @@ export default function MainText() {
               
             </div>
             ))}    
-              <div className={subtitle({ class: "mt-4" })}>
-                Beautiful, fast and modern React UI library.
-              </div>
+              <motion.div className={subtitle({ class: "mt-4" })}
+              initial= {{opacity: 0, x: -50}}
+              animate= {{opacity: 1, x: 0}}
+              transition={{ delay: 0.7, duration: 0.6, ease: "easeOut" }}
+
+              
+              >
+                Welcome To My
+              </motion.div>
+              <motion.div className={subtitle({ class: "mt-4" })}
+              initial= {{opacity: 0, x: +50}}
+              animate= {{opacity: 1, x: 0}}
+              transition={{ delay: 0.7, duration: 0.6, ease: "easeOut" }}
+
+              
+              >
+                 Portfolio Site
+              </motion.div>
             </div>              
     
 

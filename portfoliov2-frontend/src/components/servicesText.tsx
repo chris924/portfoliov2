@@ -28,7 +28,7 @@ export default function ServicesText() {
 
             {/* Right side - Text */}
             <div className="md:w-1/2 flex justify-end text-justify">
-              <RevealOnScroll onRevealComplete={() => setRevealCompleted(true)}>
+              <RevealOnScroll onRevealComplete={() => setRevealCompleted(true)} revealThreshold={0.9}>
                 <div className="flex flex-col text-base space-y-8 text-6xl">
                   <div className="flex flex-row items-center text-base text-6xl">
                   
@@ -43,7 +43,7 @@ export default function ServicesText() {
                       className="object-scale-down h-28 w-28"
                     />             
                   </motion.div>
-                  <span className="ml-4">React</span>
+                  <span className="ml-4 text-5xl">React</span>
                   </div>
 
                   <div className="flex flex-row items-center text-base text-6xl">
@@ -59,7 +59,7 @@ export default function ServicesText() {
                       className="object-scale-down h-28 w-28"
                     />             
                   </motion.div>
-                  <span className="ml-4">Spring Boot</span>
+                  <span className="ml-4 text-5xl">Spring Boot</span>
                   </div>
 
                   <div className="flex flex-row items-center text-base text-6xl">
@@ -75,10 +75,25 @@ export default function ServicesText() {
                       className="object-scale-down h-28 w-28"
                     />             
                   </motion.div>
-                  <span className="ml-4">ASP. Net</span>
+                  <span className="ml-4 text-5xl">ASP. Net</span>
                   </div>
                   
-                  <span className="text-3xl">and many others...</span>
+
+                <div className="flex flex-col md:flex-row items-center text-base">
+                  <span className="text-4xl  mr-3">and many others...</span>
+                  <a href="https://github.com/chris924" target="_blank" rel="noopener noreferrer">
+                  <motion.img
+                  src="/images/arrow.png"
+                  alt="Arrow"
+                  className="object-scale-down h-28 w-28 brightness-200"
+                  initial= {{x: -15, rotate: 270}}
+                  animate= {{x: 50}}
+                  transition={{duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut"}}
+                  >
+               
+                  </motion.img>
+                  </a>
+                </div>
                 </div>
               </RevealOnScroll>
             </div>

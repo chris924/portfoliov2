@@ -5,14 +5,16 @@ import { useInView } from "react-intersection-observer";
 
 interface RevealOnScrollProps {
     children: React.ReactNode;
-    onRevealComplete?: () => void; 
+    onRevealComplete?: () => void;
+    revealThreshold?: number; 
   }
 
 
-export default function RevealOnScroll({children, onRevealComplete}: RevealOnScrollProps) {
+export default function RevealOnScroll({children, onRevealComplete, revealThreshold}: RevealOnScrollProps) {
+  const threshold = revealThreshold ? revealThreshold : 0.4;
   const controls = useAnimation();
   const [ref, inView] = useInView({
-    threshold: 0.4, // 
+    threshold: threshold,  
   });
 
   useEffect(() => {
