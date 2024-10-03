@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import { title, subtitle } from "./primitives"
 import AboutText from "./aboutText"
 import ServicesText from "./servicesText"
+import RecentProjectText from "./recentprojectText"
 
 
 export default function MainText() {
@@ -65,6 +66,7 @@ export default function MainText() {
 
             <AboutText/>
             <ServicesText/>
+            <RecentProjectText/>
 
 
           </section>
