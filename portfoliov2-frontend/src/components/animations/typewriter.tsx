@@ -3,47 +3,47 @@ import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
 interface TypeWriterProps {
-  children: string; 
+  text: string;
   thold?: number;
   onRevealComplete?: () => void;
 }
 
-const TypewriterEffect = ({ children, thold = 0.4, onRevealComplete }: TypeWriterProps) => {
+const TypewriterEffect = ({ text, thold = 0.4, onRevealComplete }: TypeWriterProps) => {
   const [displayedText, setDisplayedText] = useState("");
   const [ref, inView] = useInView({
-    threshold: thold,
-    triggerOnce: true,
+    threshold: thold,  
+    triggerOnce: true, 
   });
 
   useEffect(() => {
-    if (inView) {
+    if (inView && displayedText.length === 0) {
       let currentText = "";
       let index = 0;
 
       const typeInterval = setInterval(() => {
-        if (index < children.length) {
-          currentText += children[index];
-          setDisplayedText(currentText);
-          index++;
-        } else {
+        currentText += text[index];
+        setDisplayedText(currentText);
+        index++;
+
+        if (index === text.length) {
           clearInterval(typeInterval);
+
           if (onRevealComplete) {
             onRevealComplete();
           }
         }
       }, 30); 
 
-      return () => clearInterval(typeInterval);
+      return () => clearInterval(typeInterval); 
     }
-  }, [inView, children, onRevealComplete]);
+  }, [inView, text, onRevealComplete]);
 
   return (
     <span ref={ref}>
       <motion.span
-        key={displayedText}
-        animate={{ opacity: displayedText.length === children.length ? 1 : 0 }} 
-        transition={{ duration: 0.5 }} 
-        className="flex flex-row justify-center items-center text-3xl font-mono"
+        animate={{ opacity: [0, 1] }}
+        transition={{ duration: 0.1 }}
+        className="text-3xl font-mono"
       >
         {displayedText}
       </motion.span>

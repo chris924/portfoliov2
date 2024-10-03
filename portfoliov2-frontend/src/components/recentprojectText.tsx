@@ -35,10 +35,10 @@ export default function RecentProjectText(){
             </div>
 
             <div className="flex flex-col items-center justify-center">
-            <TypewriterEffect onRevealComplete={() => setRevealCompleted(true)}>
-            {`BookItNow is a modern appointment booking system designed to streamline the process of scheduling appointments for various services. Built with React for a dynamic and responsive frontend, and powered by Java Spring on the backend.`}
-          </TypewriterEffect>            </div>
-        
+            <TypewriterEffect onRevealComplete={() => setRevealCompleted(true)} text="BookItNow is a modern appointment booking system designed to streamline the process of scheduling appointments for various services. Built with React for a dynamic and responsive frontend, and powered by Java Spring on the backend.">
+          </TypewriterEffect>          
+         </div>
+
 
           </section>
         </>
