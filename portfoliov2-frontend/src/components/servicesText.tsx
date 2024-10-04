@@ -27,9 +27,9 @@ export default function ServicesText() {
             </div>
 
             {/* Right side - Text */}
-            <div className="md:w-1/2 flex justify-end text-justify">
-              <RevealOnScroll onRevealComplete={() => setRevealCompleted(true)} revealThreshold={0.7}>
-                <div className="flex flex-col text-base space-y-8 text-6xl">
+            <div className="md:w-1/2 flex justify-end text-justify">     
+                <div className="flex flex-col text-base space-y-2 text-6xl">
+                <RevealOnScroll onRevealComplete={() => setRevealCompleted(true)} revealThreshold={0.7}>
                   <div className="flex flex-row items-center text-base text-6xl">
                   
                   <motion.div
@@ -77,8 +77,9 @@ export default function ServicesText() {
                   </motion.div>
                   <span className="ml-4 text-5xl">ASP. Net</span>
                   </div>
-                  
-                <div className="flex flex-col md:flex-row items-center text-base">
+                </RevealOnScroll>
+                <RevealOnScroll revealThreshold={0.9}>
+                <div className="flex flex-col md:flex-row items-center text-base">      
                   <span className="text-4xl  mr-3">and many others...</span>
                   <a href="https://github.com/chris924" target="_blank" rel="noopener noreferrer">
                   <motion.img
@@ -92,9 +93,11 @@ export default function ServicesText() {
                
                   </motion.img>
                   </a>
+               
                 </div>
+                </RevealOnScroll>
                 </div>
-              </RevealOnScroll>
+              
             </div>
           </div>
         </div>

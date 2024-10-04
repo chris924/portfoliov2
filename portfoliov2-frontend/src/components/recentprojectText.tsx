@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import RevealOnScroll from "./animations/revealonscroll";
 import { useState } from "react";
 import TypewriterEffect from "./animations/typewriter";
+import { title } from "./primitives";
 
 
 
@@ -23,7 +24,7 @@ export default function RecentProjectText(){
 
             <div className="mb-5">
                 <img
-                src="/images/wood.jpg"
+                src="/images/bookitnow.png"
                 alt="Bookitnow project"
                 className="object-scale-down w-150 h-150"            
                 >
@@ -31,7 +32,7 @@ export default function RecentProjectText(){
             </div>
 
             <div className="flex flex-row items-center justify-center">
-                <span className="text-4xl">BookItNow</span>
+                <span className={title({ color: "violet", class: "tracking-widest font-unisansheavy text-4xl" })}>BookItNow</span>
             </div>
 
             <div className="flex flex-col items-center justify-center">

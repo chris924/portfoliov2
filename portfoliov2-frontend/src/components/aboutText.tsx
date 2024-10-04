@@ -9,19 +9,23 @@ export default function AboutText() {
           <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 mt-40">
             <div className="inline-block max-w-5xl justify-center mt-20">
                 
-                <RevealOnScroll>
+                <RevealOnScroll revealDelay={1}>
                 <span className="tracking-widest font-unisansheavy text-5xl block mb-4 flex flex-col items-center justify-center">ABOUT ME</span>
                 </RevealOnScroll>
                 <div className="flex flex-col md:flex-row items-center justify-center gap-10 mt-20">
                   
                   {/* Left side - Image */}
+                 
                   <div className="md:w-1/2">
+                  <RevealOnScroll>
                     <img 
                       src="/images/self.jpg" 
                       alt="Portrait picture" 
                       className="w-full h-auto object-cover rounded-lg"
                     />
+                  </RevealOnScroll>
                   </div>
+                 
                    
             {/* Right side - Text */}
             <div className="md:w-1/2 flex flex-col items-center text-justify gap-10">
