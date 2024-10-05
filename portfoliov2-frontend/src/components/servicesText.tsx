@@ -19,10 +19,15 @@ export default function ServicesText() {
             {/* Left side - toolbox part */}
             <div className="md:w-1/2 flex">
               <div className="flex flex-col gap-6">
+                <RevealOnScroll>
                 <span className="text-6xl">My digital tool box.</span>
+                </RevealOnScroll>
+                <RevealOnScroll>
                 <span className="text-2xl">
                   These are my go-to tech stack to make my projects happen. I am always eager to learn more about my current tech stack and new technologies that could expand my horizons.
                 </span>
+                </RevealOnScroll>
+               
               </div>
             </div>
 

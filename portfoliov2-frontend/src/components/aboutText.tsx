@@ -10,7 +10,8 @@ export default function AboutText() {
             <div className="inline-block max-w-5xl justify-center mt-20">
                 
                 <RevealOnScroll revealDelay={1}>
-                <span className="tracking-widest font-unisansheavy text-5xl block mb-4 flex flex-col items-center justify-center">ABOUT ME</span>
+                <span className="tracking-widest font-unisansheavy text-5xl block mb-4 flex flex-col items-center justify-center ">ABOUT ME</span>
+                
                 </RevealOnScroll>
                 <div className="flex flex-col md:flex-row items-center justify-center gap-10 mt-20">
                   

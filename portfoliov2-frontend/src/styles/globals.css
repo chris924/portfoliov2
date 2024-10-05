@@ -26,6 +26,15 @@ body {
     color: transparent; 
   }
 
+  .transparent-text {
+    font-size: 4rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff00cc, #3333ff);
+    background-clip: text;
+    -webkit-background-clip: text; /* Required for Safari */
+    color: transparent;
+  }
+
   .dark-overlay {
     position: absolute;
     top: 0;

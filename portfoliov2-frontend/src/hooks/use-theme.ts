@@ -1,6 +1,6 @@
 // originally written by @imoaazahmed
 
-import { useEffect, useMemo, useState } from "react";
+/*import { useEffect, useMemo, useState } from "react";
 
 const ThemeProps = {
   key: "theme",
@@ -14,7 +14,7 @@ export const useTheme = (defaultTheme?: Theme) => {
   const [theme, setTheme] = useState<Theme>(() => {
     const storedTheme = localStorage.getItem(ThemeProps.key) as Theme | null;
 
-    return storedTheme || (defaultTheme ?? ThemeProps.light);
+    return storedTheme || (defaultTheme ?? ThemeProps.dark);
   });
 
   const isDark = useMemo(() => {
@@ -47,4 +47,4 @@ export const useTheme = (defaultTheme?: Theme) => {
   });
 
   return { theme, isDark, isLight, setLightTheme, setDarkTheme, toggleTheme };
-};
+};*/

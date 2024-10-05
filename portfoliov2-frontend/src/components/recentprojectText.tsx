@@ -15,7 +15,7 @@ export default function RecentProjectText(){
           <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 mt-30 w-full">
             <div className="inline-block max-w-7xl w-full mt-20">
               <RevealOnScroll >
-                <span className="tracking-widest font-unisansheavy text-5xl block mb-8 flex flex-col items-center justify-center">
+                <span className="tracking-widest font-unisansheavy text-5xl block mb-8 flex flex-col items-center justify-center font-unisansheavy">
                   My Recent Projects
                 </span>
               </RevealOnScroll>
