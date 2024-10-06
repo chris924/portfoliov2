@@ -9,7 +9,7 @@ export default function AboutText() {
           <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 mt-40">
             <div className="inline-block max-w-5xl justify-center mt-20">
                 
-                <RevealOnScroll revealDelay={1}>
+                <RevealOnScroll>
                 <span className="tracking-widest font-unisansheavy text-5xl block mb-4 flex flex-col items-center justify-center ">ABOUT ME</span>
                 
                 </RevealOnScroll>

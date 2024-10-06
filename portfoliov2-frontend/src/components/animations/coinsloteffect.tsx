@@ -21,11 +21,17 @@ export default function CoinSlot({ children }: CoinSlotProps) {
             ease: "easeOut",
           },
         });
-        setDur(prev => Math.min(prev + 0.009, 2));
+        
+        
+        setDur(prev => Math.min(prev * 1.2, 2));
+        
+       
+        if (dur > 0.6) {
+          setFinish(true);
+        }
       }
 
-      if(finish)
-      {
+      if (finish) {
         await controls.start({
           y: [-100, 0],
           opacity: [0, 1],
@@ -38,19 +44,11 @@ export default function CoinSlot({ children }: CoinSlotProps) {
     };
 
     animate();
-    
-    if(dur > 0.28)
-    {
-      setFinish(true);
-    }
-
-
-
-  }, [controls, dur]);
+  }, [controls, dur, finish]);
 
   return (
     <div>
-      <motion.div animate={controls} initial={{ y: -100, opacity: 0}}>
+      <motion.div animate={controls} initial={{ y: -100, opacity: 0 }}>
         {children}
       </motion.div>
     </div>
