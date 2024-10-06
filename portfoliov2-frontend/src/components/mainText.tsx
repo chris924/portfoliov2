@@ -14,9 +14,9 @@ export default function MainText() {
                 <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
                     <div className="inline-block max-w-full text-center justify-center">
                         {[...Array(3)].map((_, index) => (
-                            <div key={index} className="tracking-tight m-3">
+                            <div key={index} className="tracking-tight m-3 overflow-hidden">
                                 {index === 1 ? (
-                                  <div className="oveflow-hidden">
+                                  <div className="">
                                   <CoinSlot>
                                      <motion.div
                                      initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -37,7 +37,7 @@ export default function MainText() {
                                          initial={{ opacity: 0, x: 20 }}
                                          animate={{ opacity: 1, x: 0 }}
                                          transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-                                         className={title({ color: "green", size: "xl", class: "tracking-widest font-unisansheavy text-4xl " })}
+                                         className={title({ color: "green", size: "xl", class: "tracking-widest font-unisansheavy text-4xl" })}
                                      >
                                          I'M CHRIS
                                      </motion.span>
