@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import RevealOnScroll from "./animations/revealonscroll";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TypewriterEffect from "./animations/typewriter";
 import { title } from "./primitives";
 
@@ -9,6 +9,10 @@ import { title } from "./primitives";
 export default function RecentProjectText(){
     const [revealCompleted, setRevealCompleted] = useState(false);
 
+    useEffect(() => {
+      const bookimg = new Image();
+      bookimg.src = "/images/floating-book.png";
+    }, []);
 
     return (
         <>

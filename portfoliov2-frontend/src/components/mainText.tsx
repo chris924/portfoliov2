@@ -6,6 +6,7 @@ import ServicesText from "./servicesText";
 import RecentProjectText from "./recentprojectText";
 import CoinSlot from "./animations/coinsloteffect";
 import "../styles/globals.css";
+import ContactText from "./contactText";
 
 export default function MainText() {
     return (
@@ -74,26 +75,19 @@ export default function MainText() {
                             </div>
                         ))}
                         <motion.div
-                            className={subtitle({ class: "mt-4", size: "lg" })}
+                            className={subtitle({ class: "mt-8", size: "lg" })}
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.7, duration: 0.6, ease: "easeOut" }}
                         >
-                            Welcome To My
-                        </motion.div>
-                        <motion.div
-                            className={subtitle({ class: "mt-4", size: "lg" })}
-                            initial={{ opacity: 0, x: +50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.7, duration: 0.6, ease: "easeOut" }}
-                        >
-                            Portfolio Site
+                            Welcome To My Portfolio Site
                         </motion.div>
                     </div>
 
                     <AboutText />
                     <ServicesText />
                     <RecentProjectText />
+                    <ContactText />
                 </section>
             </DefaultLayout>
         </>
