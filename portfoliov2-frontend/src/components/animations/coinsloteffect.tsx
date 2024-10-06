@@ -7,7 +7,7 @@ interface CoinSlotProps {
 
 export default function CoinSlot({ children }: CoinSlotProps) {
   const controls = useAnimation();
-  const [dur, setDur] = useState(0.03);
+  const [dur, setDur] = useState(0.06);
   const [finish, setFinish] = useState(false);
 
   useEffect(() => {
@@ -23,10 +23,10 @@ export default function CoinSlot({ children }: CoinSlotProps) {
         });
         
         
-        setDur(prev => Math.min(prev * 1.2, 2));
+        setDur(prev => Math.min(prev * 1.08, 2));
         
        
-        if (dur > 0.6) {
+        if (dur > 0.27) {
           setFinish(true);
         }
       }
