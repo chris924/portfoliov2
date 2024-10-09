@@ -3,8 +3,8 @@ import emailjs from 'emailjs-com';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+    from_name: '',
+    from_email: '',
     message: '',
   });
 
@@ -40,18 +40,18 @@ function ContactForm() {
     <form className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full" onSubmit={sendEmail}>
       <input
         type="text"
-        name="name"
+        name="from_name"
         placeholder="Your name"
         onChange={handleChange}
-        value={formData.name}
+        value={formData.from_name}
         className="border-b border-gray-400 focus:outline-none focus:border-black p-2"
       />
       <input
         type="email"
-        name="email"
+        name="from_email"
         placeholder="Your email"
         onChange={handleChange}
-        value={formData.email}
+        value={formData.from_email}
         className="border-b border-gray-400 focus:outline-none focus:border-black p-2"
       />
       <textarea
