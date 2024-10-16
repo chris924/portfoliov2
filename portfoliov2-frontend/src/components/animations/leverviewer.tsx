@@ -12,17 +12,6 @@ interface ModelProps {
 }
 
 
-const Line = () => {
-
-  const linePoints = [];
-
-  linePoints.push(new THREE.Vector3(-1, 0, 0));
-  linePoints.push(new THREE.Vector3(1, 0, 0));
-
-  const lineGeometry = new THREE.BufferGeometry().setFromPoints(linePoints);
-  const lineMaterial = new THREE.LineBasicMaterial({color: 0xffffff});
-
-}
 
 
 
@@ -67,7 +56,7 @@ const Sparks = () => {
     }
   }, []);
 
-  useFrame(async (state, delta) => {
+  useFrame(async (state) => {
     const particlesArray = particlesRef.current?.geometry.attributes.position.array;
     const now = state.clock.getElapsedTime();
 
@@ -175,8 +164,10 @@ const LevelViewer: React.FC<LevelViewerProps> = ({ modelUrl, onLeverTrigger }) =
   const leverAudio = '/sounds/leverpull.mp3';
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [audioLoaded, setAudioLoaded] = useState(false);
+  // @ts-ignore
   const [textVisible, setTextVisible] = useState(false);
   const [isLeverVisible, setLeverVisible] = useState(true);
+  // @ts-ignore
   const [glowVisible, setGlowVisible] = useState(false); // New state for glow effect
 
   useEffect(() => {
