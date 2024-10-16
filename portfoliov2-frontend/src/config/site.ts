@@ -4,10 +4,6 @@ export const siteConfig = {
   name: "Chris Portfolio Site",
   description: "Make beautiful websites regardless of your design experience.",
   navItems: [
-    {
-      label: "Home",
-      href: "/",
-    },
   ],
   navMenuItems: [
     {
