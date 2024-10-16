@@ -62,7 +62,7 @@ export const Navbar = () => {
       >
         <Logo />
         
-        <HoverInHackerTyper hoverFrom="up">Chris Portfolio Site</HoverInHackerTyper>
+        <HoverInHackerTyper hoverFrom="up">Chris's Portfolio Site</HoverInHackerTyper>
       </Link>
     </NavbarBrand>
     <div className="hidden lg:flex gap-4 justify-start ml-2">
@@ -88,30 +88,12 @@ export const Navbar = () => {
     justify="end"
   >
     <NavbarItem className="hidden sm:flex gap-2">
-      <Link isExternal href={siteConfig.links.twitter} title="Twitter">
-        <TwitterIcon className="text-default-500" />
-      </Link>
-      <Link isExternal href={siteConfig.links.discord} title="Discord">
-        <DiscordIcon className="text-default-500" />
-      </Link>
       <Link isExternal href={siteConfig.links.github} title="GitHub">
         <GithubIcon className="text-default-500" />
       </Link>
      
     </NavbarItem>
-    <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
-    <NavbarItem className="hidden md:flex">
-      <Button
-        isExternal
-        as={Link}
-        className="text-sm font-normal text-default-600 bg-default-100"
-        href={siteConfig.links.sponsor}
-        startContent={<HeartFilledIcon className="text-danger" />}
-        variant="flat"
-      >
-        Sponsor
-      </Button>
-    </NavbarItem>
+
   </NavbarContent>
 
   <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
@@ -132,10 +114,10 @@ export const Navbar = () => {
               index === 2
                 ? "primary"
                 : index === siteConfig.navMenuItems.length - 1
-                  ? "danger"
+                  ? "primary"
                   : "foreground"
             }
-            href="#"
+            href={item.href}
             size="lg"
           >
            <HoverInHackerTyper hoverFrom="up">{item.label}</HoverInHackerTyper>

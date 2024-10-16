@@ -24,8 +24,8 @@ export default function ContactText() {
           <div>
             <h2 className="font-bold text-4xl">My Digital Spaces</h2>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-700 text-2xl">Github</a></li>
-              <li><a href="#" className="text-gray-700 text-2xl">LinkedIn</a></li>
+              <li><a href="https://github.com/chris924" className="text-gray-700 text-2xl">Github</a></li>
+              <li><a href="https://www.linkedin.com/in/krisztofer-burka-756658232/" className="text-gray-700 text-2xl">LinkedIn</a></li>
             </ul>
           </div>
   
