@@ -8,8 +8,15 @@ import CoinSlot from "./animations/coinsloteffect";
 import "../styles/globals.css";
 import "../styles/leverviewer.css"
 import ContactText from "./contactText";
+import { useState } from "react";
+
+
+
 
 export default function MainText() {
+
+    const [animationFinished, setAnimationFinished] = useState(false);
+
     return (
         <>
             <DefaultLayout>
@@ -39,7 +46,7 @@ export default function MainText() {
                                          initial={{ opacity: 0, x: 20 }}
                                          animate={{ opacity: 1, x: 0 }}
                                          transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-                                         className={title({ color: "green", size: "xl", class: "tracking-widest font-unisansheavy text-4xl" })}
+                                         className={title({ color: "green", size: "xl", class: "tracking-widest font-unisansheavy" })}
                                      >
                                          I'M CHRIS
                                      </motion.span>
@@ -66,7 +73,7 @@ export default function MainText() {
                                             initial={{ opacity: 0, x: 20 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-                                            className={title({ color: "green", size: "xl", class: "tracking-widest font-unisansheavy text-4xl " })}
+                                            className={title({ color: "green", size: "xl", class: "tracking-widest font-unisansheavy" })}
                                         >
                                             I'M CHRIS
                                         </motion.span>
@@ -79,7 +86,7 @@ export default function MainText() {
                             className={subtitle({ class: "mt-8", size: "lg" })}
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.7, duration: 0.6, ease: "easeOut" }}
+                            transition={{ delay: 1, duration: 0.6, ease: "easeOut" }}
                         >
                             Welcome To My Portfolio Site
                         </motion.div>
@@ -87,8 +94,8 @@ export default function MainText() {
 
                     <AboutText />
                     <ServicesText />
-                    <RecentProjectText />
-                    <ContactText />
+                    <RecentProjectText setAnimationFinished={setAnimationFinished}/>
+                    <ContactText animationFinished={animationFinished}/>
                 </section>
             </DefaultLayout>
         </>

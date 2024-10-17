@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import emailjs from 'emailjs-com';
+import {Button, ButtonGroup} from "@nextui-org/button";
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -61,12 +62,13 @@ function ContactForm() {
         value={formData.message}
         className="border-b border-gray-400 focus:outline-none focus:border-black p-2 md:col-span-2"
       />
-      <button
+      <Button
         type="submit"
-        className="mt-4 bg-black text-white py-2 px-4 rounded-md md:col-span-2"
+        className="mt-4  py-2 px-4 rounded-md md:col-span-2"
+        color='primary'
       >
         Send Message
-      </button>
+      </Button>
     </form>
   );
 }
