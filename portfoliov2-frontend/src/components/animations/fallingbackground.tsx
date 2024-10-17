@@ -15,7 +15,7 @@ const FallingBackground = () => {
         top: 0,
         left: 0,
         right: 0,
-        height: '100vh',
+        height: '100%',
         backgroundColor: "black",
         zIndex: 0, 
       }}
