@@ -1,7 +1,6 @@
 import { Link } from "@nextui-org/link";
 
-import { Navbar } from "@/components/navbar";
-import FallingBackground from "@/components/animations/fallingbackground";
+
 
 export default function DefaultLayout({
   children,
