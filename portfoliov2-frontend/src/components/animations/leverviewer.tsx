@@ -194,11 +194,8 @@ const LevelViewer: React.FC<LevelViewerProps> = ({ modelUrl, onLeverTrigger }) =
   const handleModelClick = () => {
     if (audioLoaded && audioRef.current) {
       const audio = audioRef.current;
-      audio.play().then(() => {
-        audio.currentTime = 2;  
-      }).catch(error => {
-        console.error("Audio playback failed", error);
-      });
+      audio.currentTime = 2;
+      audio.play();
     }
 
     onLeverTrigger();
