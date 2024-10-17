@@ -53,10 +53,15 @@ export default function RecentProjectText(){
               src="/images/floating-book.png"
               alt="Book"
               className="object-scale-down h-28 w-28 brightness-200"
-              transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-              whileHover={{
+              animate={{
                 x: [-5, 5, -5, 5, 0],
-                transition: { duration: 0.3 }
+                transition: {
+                  duration: 1,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                  repeatDelay: 2
+                },
               }}
             />
           </a> 
