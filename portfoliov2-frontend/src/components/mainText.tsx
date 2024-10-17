@@ -6,6 +6,7 @@ import ServicesText from "./servicesText";
 import RecentProjectText from "./recentprojectText";
 import CoinSlot from "./animations/coinsloteffect";
 import "../styles/globals.css";
+import "../styles/leverviewer.css"
 import ContactText from "./contactText";
 
 export default function MainText() {

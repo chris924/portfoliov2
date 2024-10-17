@@ -38,6 +38,7 @@ export default function IndexPage() {
       {!overlayVisible && (
           <>
           <MainText/>
+          
            </>
         )}
    
