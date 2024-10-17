@@ -1,6 +1,7 @@
 import { Link } from "@nextui-org/link";
 
-
+import { Navbar } from "@/components/navbar";
+import FallingBackground from "@/components/animations/fallingbackground";
 
 export default function DefaultLayout({
   children,
@@ -9,9 +10,9 @@ export default function DefaultLayout({
 }) {
   return (
     <>
-
+    <FallingBackground/>
     <div className="relative flex flex-col h-screen ">
-    
+      <Navbar />
       <main className="container mx-auto max-w-7xl px-6 flex-grow pt-16 ">
         {children}
       </main>
