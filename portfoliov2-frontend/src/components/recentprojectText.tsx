@@ -21,13 +21,20 @@ export default function RecentProjectText({ setAnimationFinished }: RecentProjec
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 mt-30 w-full mb-10 h-50">
         <div className="inline-block max-w-7xl w-full mt-20">
           <RevealOnScroll revealThreshold={0.3}>
-            <span className="tracking-widest font-unisansheavy text-5xl block mb-8 flex flex-col items-center justify-center font-unisansheavy">
+            <span className="tracking-widest font-unisansheavy text-5xl text-center block mb-8 flex flex-col items-center justify-center font-unisansheavy">
               My Recent Projects
             </span>
           </RevealOnScroll>
         </div>
 
         <RevealOnScroll revealThreshold={0.6}>
+
+          <div className="flex flex-row items-center justify-center mb-5">
+            <span className={title({ color: "violet", class: "tracking-widest font-unisansheavy text-4xl" })}>
+              BookItNow
+            </span>
+          </div>
+
           <div className="mb-5">
             <img
               src="/images/bookitnow.png"
@@ -36,14 +43,10 @@ export default function RecentProjectText({ setAnimationFinished }: RecentProjec
             />
           </div>
 
-          <div className="flex flex-row items-center justify-center">
-            <span className={title({ color: "violet", class: "tracking-widest font-unisansheavy text-4xl" })}>
-              BookItNow
-            </span>
-          </div>
+         
         </RevealOnScroll>
 
-        <div className="flex flex-col items-center justify-center lg:h-60 h-30">
+        <div className="flex flex-col items-center justify-center text-start lg:h-60 h-30">
           <TypewriterEffect 
             onRevealComplete={() => { 
               setRevealCompleted(true); 
