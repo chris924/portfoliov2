@@ -27,16 +27,6 @@ body {
 }                                                  
 
 
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('/images/bg.jpg');
-  z-index: -1;
-}
 
   .text-stroke {
     -webkit-text-stroke: 1px black; 

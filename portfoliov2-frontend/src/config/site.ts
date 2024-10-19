@@ -4,6 +4,10 @@ export const siteConfig = {
   name: "Chris Portfolio Site",
   description: "Make beautiful websites regardless of your design experience.",
   navItems: [
+    {
+      label: "CV",
+      href: "/about"
+    }
   ],
   navMenuItems: [
     {
@@ -14,6 +18,9 @@ export const siteConfig = {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/krisztofer-burka-756658232/",
     },
+    {
+      label: "CV"
+    }
   ],
   links: {
     github: "https://github.com/chris924",

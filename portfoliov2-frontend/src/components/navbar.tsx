@@ -11,6 +11,8 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/navbar";
+import clsx from "clsx";
+import { link as linkStyles } from "@nextui-org/theme";
 
 import { siteConfig } from "@/config/site";
 //import { ThemeSwitch } from "@/components/theme-switch";
@@ -43,6 +45,9 @@ export const Navbar = () => {
     />
   );
 
+
+  
+
   return (
     <>
     <motion.div initial= {{opacity:0, y: -50}} animate= {{opacity: 1, y: 0}} transition={{ duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] }}>
@@ -59,6 +64,22 @@ export const Navbar = () => {
         <HoverInHackerTyper hoverFrom="up">Chris's Portfolio Site</HoverInHackerTyper>
       </Link>
     </NavbarBrand>
+    <div className="hidden lg:flex gap-4 justify-start ml-2">
+          {siteConfig.navItems.map((item) => (
+            <NavbarItem key={item.href}>
+              <Link
+                className={clsx(
+                  linkStyles({ color: "foreground" }),
+                  "data-[active=true]:text-primary data-[active=true]:font-medium",
+                )}
+                color="foreground"
+                href={item.href}
+              >
+                <HoverInHackerTyper hoverFrom="up">{item.label}</HoverInHackerTyper>
+              </Link>
+            </NavbarItem>
+          ))}
+        </div>
     
   </NavbarContent>
 
