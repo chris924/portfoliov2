@@ -24,9 +24,9 @@ export default function MainText() {
                     <div className="inline-block max-w-full text-center justify-center">
                         {[...Array(3)].map((_, index) => (
                             <div key={index} className="tracking-tight m-3 overflow-hidden">
-                                {index === 1 ? (
+                                {index === 1 ? (                          
                                   <div className="">
-                                  
+                                 
                                      <motion.div
                                      initial={{ opacity: 0, y: 50, scale: 0.9 }}
                                      animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -52,6 +52,7 @@ export default function MainText() {
                                      </motion.span>
                                      <br />
                                  </motion.div>
+                                
                                  </div>
                                 ) : (
                                     <motion.div

@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 
 const FallingBackground = () => {
   return (
-    <motion.div
-      className="falling-background"
+    <motion.div 
+      className="falling-background w-full h-screen" 
       initial={{ y: '-100%' }}  
       animate={{ y: '0%' }}     
       exit={{ y: '100%' }}       
@@ -15,9 +15,8 @@ const FallingBackground = () => {
         left: 0,
         right: 0,
         height: '100%',
-        backgroundColor: "black",
-        backgroundImage: "url(/images/testbg-mobile2.jpg)",
-        backgroundSize: 'cover', 
+        backgroundSize: 'cover',
+        backgroundColor: 'black',
         backgroundPosition: 'center', 
         zIndex: 0,
         willChange: 'transform'
