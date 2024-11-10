@@ -7,7 +7,17 @@ const getRandomChar = () => {
   return chars[Math.floor(Math.random() * chars.length)];
 };
 
-const HoverInHackerTyper: React.FC<{ children: string, hoverFrom: string }> = ({ children, hoverFrom }) => {
+interface HoverInHackerTyperProps {
+  children: string;
+  hoverFrom: string;
+  delay?: number;
+}
+
+const HoverInHackerTyper: React.FC<HoverInHackerTyperProps> = ({
+  children,
+  hoverFrom,
+  delay = 0,
+}) => {
   const [displayedText, setDisplayedText] = useState<string>("");
 
   const getInitialPosition = () => {
@@ -21,43 +31,45 @@ const HoverInHackerTyper: React.FC<{ children: string, hoverFrom: string }> = ({
       case "right":
         return { x: 50, y: 0 };
       default:
-        return { y: -50, x: 0 }; 
+        return { y: -50, x: 0 };
     }
   };
 
   const initialPosition = getInitialPosition();
 
   useEffect(() => {
-
     let currentIndex = 0;
-
     const intervalTime = children.length < 6 ? 200 : 85;
 
-    const updateText = () => {
-      if (currentIndex < children.length) {
-        const randomChars = children
-          .split("")
-          .map((char, idx) =>
-            idx <= currentIndex ? char : getRandomChar()
-          )
-          .join("");
-        setDisplayedText(randomChars);
-        currentIndex++;
-      } else {
-        clearInterval(intervalId);
-      }
+    const startAnimation = () => {
+      const intervalId = setInterval(() => {
+        if (currentIndex < children.length) {
+          const randomChars = children
+            .split("")
+            .map((char, idx) =>
+              idx <= currentIndex ? char : getRandomChar()
+            )
+            .join("");
+          setDisplayedText(randomChars);
+          currentIndex++;
+        } else {
+          clearInterval(intervalId);
+        }
+      }, intervalTime);
     };
 
-    const intervalId = setInterval(updateText, intervalTime); 
+    const timeoutId = setTimeout(startAnimation, delay);
 
-    return () => clearInterval(intervalId);
-  }, [children]);
+    return () => {
+      clearTimeout(timeoutId); 
+    };
+  }, [children, delay]);
 
   return (
     <motion.div
       initial={{ opacity: 0, x: initialPosition.x, y: initialPosition.y }}
       animate={{ opacity: 1, x: 0, y: 0 }}
-      transition={{ duration: 0.5}}
+      transition={{ duration: 0.5, delay: delay / 1000 }}
     >
       {displayedText}
     </motion.div>

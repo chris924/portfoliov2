@@ -9,6 +9,7 @@ import "../styles/globals.css";
 import "../styles/leverviewer.css"
 import ContactText from "./contactText";
 import { useState } from "react";
+import HoverInHackerTyper from "./animations/hoverinhackertyper";
 
 
 
@@ -83,13 +84,17 @@ export default function MainText() {
                             </div>
                         ))}
                         <motion.div
-                            className={subtitle({ class: "mt-8", size: "lg" })}
+                            className={subtitle({ class: "mt-20 tracking-wide font-unisansheavy", size: "xl", color: "foreground" })}
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 1, duration: 0.6, ease: "easeOut" }}
+                            transition={{ delay: 2, duration: 0.6, ease: "easeOut" }}
                         >
-                            Welcome To My Portfolio Site
+                            Explore  
                         </motion.div>
+                        <div className={subtitle({ class: "mt-10 font-unisansheavy text-3xl lg:text-5xl", color: "foreground" })}>
+                        <HoverInHackerTyper hoverFrom="up" delay={2.5}>My Work and Passion</HoverInHackerTyper>
+                        </div>
+                       
                     </div>
 
                     <AboutText />

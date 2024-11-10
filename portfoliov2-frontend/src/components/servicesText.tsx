@@ -10,7 +10,7 @@ export default function ServicesText() {
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 mt-30 w-full">
         <div className="inline-block max-w-7xl w-full mt-20">
           <RevealOnScroll >
-            <span className="tracking-widest font-unisansheavy text-5xl block mb-8 flex flex-col items-center justify-center">
+            <span className="font-medium font-unisansheavy text-6xl block mb-8 flex flex-col items-center justify-center">
               My Services
             </span>
           </RevealOnScroll>
@@ -20,7 +20,7 @@ export default function ServicesText() {
             <div className="md:w-1/2 flex">
               <div className="flex flex-col gap-6">
                 <RevealOnScroll>
-                <span className="text-6xl">My digital tool box.</span>
+                <span className="text-5xl">My digital tool box.</span>
                 </RevealOnScroll>
                 <RevealOnScroll>
                 <span className="text-2xl">

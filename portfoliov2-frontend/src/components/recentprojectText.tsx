@@ -21,8 +21,8 @@ export default function RecentProjectText({ setAnimationFinished }: RecentProjec
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 mt-30 w-full mb-10 h-50">
         <div className="inline-block max-w-7xl w-full mt-20">
           <RevealOnScroll revealThreshold={0.3}>
-            <span className="tracking-widest font-unisansheavy text-5xl text-center block mb-8 flex flex-col items-center justify-center font-unisansheavy">
-              My Recent Projects
+            <span className="font-unisansheavy font-medium text-5xl lg:text-6xl text-center block mb-8 flex flex-col items-center justify-center font-unisansheavy">
+             Recent Projects
             </span>
           </RevealOnScroll>
         </div>

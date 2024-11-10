@@ -20,20 +20,20 @@ export default function ContactText({ animationFinished }: ContactTextProps) {
             <div className="flex-1 flex flex-col space-y-4 ml-auto">
               <div>
                 <h2 className="font-bold text-4xl">Contact Details</h2>
-                <p className="text-gray-700 text-2xl">kriszb924@gmail.com</p>
-                <p className="text-gray-700 text-2xl">+36 30 506 8486</p>
+                <p className="text-gray-400 text-2xl">kriszb924@gmail.com</p>
+                <p className="text-gray-400 text-2xl">+36 30 506 8486</p>
               </div>
 
               <div>
                 <h2 className="font-bold text-4xl">My Digital Spaces</h2>
                 <ul className="space-y-2">
                   <li>
-                    <a href="https://github.com/chris924" className="text-gray-700 text-2xl">
+                    <a href="https://github.com/chris924" className="text-gray-400 text-2xl">
                       Github
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.linkedin.com/in/krisztofer-burka-756658232/" className="text-gray-700 text-2xl">
+                    <a href="https://www.linkedin.com/in/krisztofer-burka-756658232/" className="text-gray-400 text-2xl">
                       LinkedIn
                     </a>
                   </li>
@@ -42,7 +42,7 @@ export default function ContactText({ animationFinished }: ContactTextProps) {
 
               <div>
                 <h2 className="font-bold text-4xl">Location</h2>
-                <p className="text-gray-700 text-2xl">Budapest, Hungary</p>
+                <p className="text-gray-400 text-2xl">Budapest, Hungary</p>
               </div>
             </div>
           </section>
