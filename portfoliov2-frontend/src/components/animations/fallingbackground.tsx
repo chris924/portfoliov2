@@ -16,10 +16,11 @@ const FallingBackground = () => {
         right: 0,
         height: '100%',
         backgroundColor: "black",
-        backgroundImage: "url(/images/testbg.jpg)",
+        backgroundImage: "url(/images/testbg-mobile.jpg)",
         backgroundSize: 'cover', // Adjust this to control zoom level
         backgroundPosition: 'center', // Keep the image centered
         zIndex: 0,
+        willChange: 'transform'
       }}
     />
   );

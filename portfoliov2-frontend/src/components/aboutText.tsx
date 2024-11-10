@@ -4,31 +4,27 @@ import "../styles/globals.css";
 export default function AboutText() {
   return (
     <>
+    <RevealOnScroll revealThreshold={0.2}>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 mt-40">
         <div className="inline-block max-w-5xl justify-center mt-20">
-          
-            <RevealOnScroll>
             <span className="font-medium font-unisansheavy text-6xl block mb-4 flex flex-col items-center justify-center">
               About Me
             </span>
-            </RevealOnScroll>
             <div className="flex flex-col md:flex-row items-center justify-between gap-10 mt-20">
               {/* Left side - Image */}
-              <RevealOnScroll>
+            
               <div className="md:w-1/2 lg:mt-20">
                 <img
                   src="/images/self.jpg"
                   alt="Portrait picture"
                   className="w-full h-auto object-cover rounded-lg"
                 />
-              </div>
-              </RevealOnScroll>       
+              </div>       
               {/* Right side - Text */}
               <div className="md:w-1/2 flex flex-col self-start text-justify gap-10">
              
                 <div className="text-5xl font-medium">A Brief intro, who am I</div>
                
-               <RevealOnScroll>
                 <div className="flex flex-col text-base space-y-8 text-3xl">
              
                   <span className="text-2xl">
@@ -50,12 +46,11 @@ export default function AboutText() {
                     with friends, and cooking delicious meals.
                   </span>
                 </div>
-                </RevealOnScroll>
               </div>
             </div>
-        
         </div>
       </section>
+      </RevealOnScroll>
     </>
   );
 }

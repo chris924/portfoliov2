@@ -4,7 +4,6 @@ import { title, subtitle } from "./primitives";
 import AboutText from "./aboutText";
 import ServicesText from "./servicesText";
 import RecentProjectText from "./recentprojectText";
-import CoinSlot from "./animations/coinsloteffect";
 import "../styles/globals.css";
 import "../styles/leverviewer.css"
 import ContactText from "./contactText";
@@ -27,7 +26,7 @@ export default function MainText() {
                             <div key={index} className="tracking-tight m-3 overflow-hidden">
                                 {index === 1 ? (
                                   <div className="">
-                                  <CoinSlot>
+                                  
                                      <motion.div
                                      initial={{ opacity: 0, y: 50, scale: 0.9 }}
                                      animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -53,7 +52,6 @@ export default function MainText() {
                                      </motion.span>
                                      <br />
                                  </motion.div>
-                                 </CoinSlot>
                                  </div>
                                 ) : (
                                     <motion.div

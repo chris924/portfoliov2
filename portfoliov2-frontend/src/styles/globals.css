@@ -60,3 +60,9 @@ body {
   .dark-overlay.visible {
     opacity: 1; 
   }
+
+  @media (max-width: 768px) {
+    .falling-background {
+      background-image: url('/images/testbg-mobile.jpg');
+    }
+  }
