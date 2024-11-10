@@ -63,6 +63,6 @@ body {
 
   @media (max-width: 768px) {
     .falling-background {
-      background-image: url('/images/testbg-mobile.jpg');
+      background-image: url('/images/testbg-mobile2.jpg');
     }
   }
