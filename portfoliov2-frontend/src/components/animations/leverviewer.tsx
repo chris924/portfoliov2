@@ -219,7 +219,7 @@ const LevelViewer: React.FC<LevelViewerProps> = ({ modelUrl, onLeverTrigger }) =
           transition={{ duration: 3 }}
         >
           <Canvas>
-            <ambientLight intensity={0.5} />
+            <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 5]} intensity={1} />
             <Suspense fallback={null}>
               <Model url={modelUrl} onClick={handleModelClick} />
