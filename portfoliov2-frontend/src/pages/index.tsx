@@ -15,33 +15,36 @@ export default function IndexPage() {
   const [leverTriggered, setLeverTriggered] = useState(false);
   const [removeCanvas, setRemoveCanvas] = useState(false);
   const [overlayVisible, setOverlayVisible] = useState(true);
-  
+  const [leverFadingOut, setLeverFadingOut] = useState(false); 
+
   const handleLeverTrigger = () => {
     setLeverTriggered(true);
+    setLeverFadingOut(true);
     setTimeout(() => {
+      
       setRemoveCanvas(true);
       setOverlayVisible(false);
-    }, 3000); 
+    }, 2000); 
   };
 
 
   return (
     <>
-      <div className={`dark-overlay ${overlayVisible ? 'visible' : 'hidden'}`}> 
+      <div
+        className={`dark-overlay ${
+          leverTriggered ? (leverFadingOut ? 'fading' : 'hidden') : 'visible'
+        }`}
+      >
         {!removeCanvas && (
-          <>
-          <LevelViewer modelUrl={leverUrl} onLeverTrigger={handleLeverTrigger} /></>
-          
-        )}  
-      </div>
-
-      {!overlayVisible && (
-          <>
-          <MainText/>
-          
-           </>
+          <LevelViewer modelUrl={leverUrl} onLeverTrigger={handleLeverTrigger} />
         )}
-   
-</>
+      </div>
+  
+      {!overlayVisible && (
+        <>
+          <MainText />
+        </>
+      )}
+    </>
   );
 }
