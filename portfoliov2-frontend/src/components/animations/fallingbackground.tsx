@@ -17,6 +17,7 @@ const FallingBackground = () => {
         height: '100%',
         backgroundSize: 'cover',
         backgroundColor: 'black',
+        backgroundImage: 'url(images/testbg-mobile2.jpg)',
         backgroundPosition: 'center', 
         zIndex: 0,
         willChange: 'transform'
