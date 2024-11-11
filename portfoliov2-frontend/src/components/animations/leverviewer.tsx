@@ -190,8 +190,8 @@ const LevelViewer: React.FC<LevelViewerProps> = ({ modelUrl, onLeverTrigger }) =
     };
   }, [leverAudio]);
 
-  // Handle model click
-  /*const handleModelClick = () => {
+  
+  const handleModelClick = () => {
     if (audioLoaded && audioRef.current) {
       const audio = audioRef.current;
       audio.currentTime = 2;
@@ -207,7 +207,7 @@ const LevelViewer: React.FC<LevelViewerProps> = ({ modelUrl, onLeverTrigger }) =
     setTimeout(() => {
       setGlowVisible(false);
     }, 2000);
-  };*/
+  };
 
   return (
     <div className="fullscreen-container">
@@ -222,25 +222,7 @@ const LevelViewer: React.FC<LevelViewerProps> = ({ modelUrl, onLeverTrigger }) =
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 5]} intensity={1} />
             <Suspense fallback={null}>
-              <Model url={modelUrl}onClick={() => {
-                if (audioLoaded && audioRef.current) {
-                  const audio = audioRef.current;
-                  audio.currentTime = 2; 
-                  audio.play().catch((error) => {
-                    console.log("Audio playback prevented:", error);
-                  });
-                }
-
-                onLeverTrigger();
-                setTextVisible(true);
-                setLeverVisible(false);
-                setGlowVisible(true);
-
-                
-                setTimeout(() => {
-                  setGlowVisible(false);
-                }, 2000);
-              }} />
+              <Model url={modelUrl}onClick= {handleModelClick} />
               <Sparks />
             </Suspense>
             <OrbitControls enableRotate={false} enableZoom={false} />
