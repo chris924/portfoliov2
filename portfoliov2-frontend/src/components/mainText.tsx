@@ -83,7 +83,7 @@ export default function MainText() {
                             className={subtitle({ class: "mt-20 tracking-wide font-unisansheavy", size: "xl", color: "foreground" })}
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 2, duration: 0.6, ease: "easeOut" }}
+                            transition={{ delay: 1.5, duration: 0.6, ease: "easeOut" }}
                         >
                             Explore
                         </motion.div>
@@ -94,7 +94,7 @@ export default function MainText() {
                             className={subtitle({ class: "mt-10 font-unisansheavy text-3xl lg:text-5xl", color: "foreground" })}
                             initial={{ opacity: 0, x: 50 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 2.5, duration: 0.6, ease: "easeOut" }}
+                            transition={{ delay: 2, duration: 0.6, ease: "easeOut" }}
                         >
                          My Work and Passion
                         </motion.div>
