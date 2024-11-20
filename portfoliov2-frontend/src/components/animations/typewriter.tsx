@@ -34,7 +34,8 @@ const TypewriterEffect = ({ text, thold = 0.4, onRevealComplete }: TypeWriterPro
         }
       }, 30); 
 
-      return () => clearInterval(typeInterval); 
+      return () => clearInterval(typeInterval);
+       
     }
   }, [inView, text, onRevealComplete]);
 
@@ -43,7 +44,7 @@ const TypewriterEffect = ({ text, thold = 0.4, onRevealComplete }: TypeWriterPro
       <motion.span
         animate={{ opacity: [0, 1] }}
         transition={{ duration: 0.1 }}
-        className="text-3xl font-mono"
+        className=""
       >
         {displayedText}
       </motion.span>

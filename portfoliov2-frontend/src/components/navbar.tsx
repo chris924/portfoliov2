@@ -50,10 +50,10 @@ export const Navbar = () => {
 
   return (
     <>
-    <motion.div initial= {{opacity:0, y: -50}} animate= {{opacity: 1, y: 0}} transition={{ duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] }}>
+    <motion.div initial= {{opacity:0, y: -50}} animate= {{opacity: 1, y: 0}} transition={{ duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] }} className="z-9000">
     <NextUINavbar maxWidth="xl" position="sticky">
   <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-    <NavbarBrand className="gap-3 max-w-fit">
+    <NavbarBrand className="gap-3 max-w-fit Z-90">
       <Link
         className="flex justify-start items-center gap-1"
         color="foreground"

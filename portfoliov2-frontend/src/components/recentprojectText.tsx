@@ -5,7 +5,7 @@ import TypewriterEffect from "./animations/typewriter";
 import { title } from "./primitives";
 
 interface RecentProjectTextProps {
-  setAnimationFinished: (isFinished: boolean) => void; // Correct the type
+  setAnimationFinished: (isFinished: boolean) => void; 
 }
 
 export default function RecentProjectText({ setAnimationFinished }: RecentProjectTextProps) {
@@ -46,7 +46,7 @@ export default function RecentProjectText({ setAnimationFinished }: RecentProjec
          
         </RevealOnScroll>
 
-        <div className="flex flex-col items-center justify-center text-start lg:h-60 h-30">
+        <div className="flex flex-col items-center justify-center text-start lg:h-60 h-30 text-3xl font-mono">
           <TypewriterEffect 
             onRevealComplete={() => { 
               setRevealCompleted(true); 
