@@ -115,7 +115,7 @@ export default function CV() {
           </div>
           <div className=''>
             <h2 className="text-xl font-semibold text-gray-800">
-              <TypewriterEffect text="Egyéb Ismeretek" />
+              <TypewriterEffect text="Egyéb Ismeretek"/>
             </h2>
           </div>
         </div>
