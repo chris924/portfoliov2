@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from "framer-motion";
 import TypewriterEffect from './animations/typewriter';
 
+
+
+
 export default function CV() {
+  const divRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    divRef.current?.scrollIntoView({behavior: 'smooth', block: 'center'})
+  }, [])
+
+
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen">
       <motion.div
+        ref={divRef}
         className="bg-white w-full sm:w-3/4 lg:w-2/3 shadow-lg p-10 rounded-md"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -15,7 +26,7 @@ export default function CV() {
           <img
             src="/images/self.jpg"
             alt="Profile"
-            className="w-32 h-32 rounded-lg mr-6"
+            className="w-32 aspect-square object-cover rounded-lg mr-6"
           />
           <div className='flex flex-col'>
             <h1 className="text-2xl font-bold text-gray-800">
@@ -27,7 +38,7 @@ export default function CV() {
           </div>
         </div>
 
-        <div className="mt-6">
+        <div className="mt-4">
           <p className="text-sm text-gray-600">
             <strong><TypewriterEffect text="Cím:" /></strong>{" "}
             <TypewriterEffect text="1116 Budapest" />
@@ -46,11 +57,11 @@ export default function CV() {
           </p>
         </div>
 
-        <div className="mt-8">
+        <div className="mt-4">
           <h2 className="text-xl font-semibold text-gray-800">
             <TypewriterEffect text="Tapasztalat" />
           </h2>
-          <div className="mt-4">
+          <div className="mt-2">
             <p className="font-bold text-gray-800">
               <TypewriterEffect text="Info-M Zrt." />
             </p>
@@ -63,9 +74,9 @@ export default function CV() {
             </p>
           </div>
 
-          <div className="mt-4">
+          <div className="mt-2">
             <p className="font-bold text-gray-800">
-              <TypewriterEffect text="BARANYA MEGYEI KORMÁNYHIVATAL - MOHÁCSI JÁRÁSI HIVATAL FOGLALKOZTATÁSI OSZTÁLY" />
+              <TypewriterEffect text="Baranya Megyei Kormányhivatal - Mohácsi Járási Hivatal Foglalkoztatási Osztály" />
             </p>
             <p className="text-sm text-gray-600">
               <strong><TypewriterEffect text="Időszak:" /></strong>{" "}
@@ -77,11 +88,11 @@ export default function CV() {
           </div>
         </div>
 
-        <div className="mt-8">
+        <div className="mt-4">
           <h2 className="text-xl font-semibold text-gray-800">
             <TypewriterEffect text="Tanulmányok" />
           </h2>
-          <div className="mt-4">
+          <div className="mt-2">
             <p className="font-bold text-gray-800">
               <TypewriterEffect text="Codecool" />
             </p>
@@ -89,7 +100,7 @@ export default function CV() {
               <TypewriterEffect text="Fullstack Developer képzés (2023-2023)" />
             </p>
           </div>
-          <div className="mt-4">
+          <div className="mt-2">
             <p className="font-bold text-gray-800">
               <TypewriterEffect text="GAZDÁLKODÁSI ÉS MENEDZSMENT - Pécsi Tudományegyetem" />
             </p>
@@ -99,7 +110,7 @@ export default function CV() {
           </div>
         </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-4">
+        <div className="mt-4 grid grid-cols-2 gap-4">
           <div>
             <h2 className="text-xl font-semibold text-gray-800">
               <TypewriterEffect text="Nyelvismeret" />
