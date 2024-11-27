@@ -7,7 +7,7 @@ export default function ServicesText() {
 
   return (
     <>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 mt-30 w-full">
+      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 mt-20 w-full">
         <div className="inline-block max-w-7xl w-full mt-20">
           <RevealOnScroll >
             <span className="font-medium font-unisansheavy text-6xl block mb-8 flex flex-col items-center justify-center">

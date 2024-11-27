@@ -1,17 +1,25 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 interface TypeWriterProps {
   text: string;
+  thold?: number;
   onRevealComplete?: () => void;
 }
 
-const TypewriterEffect = ({ text, onRevealComplete }: TypeWriterProps) => {
+const TypewriterEffect = ({ text, onRevealComplete, thold = 0.4 }: TypeWriterProps) => {
   const [displayedText, setDisplayedText] = useState("");
+
+
+  const [ref, inView] = useInView({
+    threshold: thold,  
+    triggerOnce: true, 
+  });
 
   useEffect(() => {
 
-    if ( displayedText.length === 0) {
+    if ( inView && displayedText.length === 0) {
       let currentText = "";
       let index = 0;
 
@@ -32,12 +40,12 @@ const TypewriterEffect = ({ text, onRevealComplete }: TypeWriterProps) => {
       return () => clearInterval(typeInterval);
        
     }
-  }, [ text, onRevealComplete]);
+  }, [ inView, text, onRevealComplete]);
 
   return (
     <span>
       <motion.span
-        initial="hidden"
+        ref={ref}
         animate={{ opacity: [0, 1] }}
         transition={{ duration: 0.1 }}
         className=""

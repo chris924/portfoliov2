@@ -17,7 +17,7 @@ export default function MainText() {
     return (
         <>
             <DefaultLayout>
-                <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+                <section className="flex flex-col items-center justify-center gap-2">
                     <div className="inline-block max-w-full text-center justify-center">
                         {[...Array(3)].map((_, index) => (
                             <div key={index} className="tracking-tight m-3 overflow-hidden">
@@ -80,10 +80,10 @@ export default function MainText() {
                             </div>
                         ))}
                         <motion.div
-                            className={subtitle({ class: "mt-20 tracking-wide font-unisansheavy", size: "xl", color: "foreground" })}
+                            className={subtitle({ class: "mt-10 tracking-wide font-unisansheavy", size: "xl", color: "foreground" })}
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 1.5, duration: 0.6, ease: "easeOut" }}
+                            transition={{ delay: 1.5, duration: 0.6, ease: "easeInOut" }}
                         >
                             Explore
                         </motion.div>
@@ -94,7 +94,7 @@ export default function MainText() {
                             className={subtitle({ class: "mt-10 font-unisansheavy text-3xl lg:text-5xl", color: "foreground" })}
                             initial={{ opacity: 0, x: 50 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 2, duration: 0.6, ease: "easeOut" }}
+                            transition={{ delay: 2.5, duration: 0.6, ease: "easeInOut" }}
                         >
                          My Work and Passion
                         </motion.div>

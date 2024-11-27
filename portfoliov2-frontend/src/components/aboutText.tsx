@@ -5,7 +5,7 @@ export default function AboutText() {
   return (
     <>
     <RevealOnScroll revealThreshold={0.2}>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 mt-40">
+      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 mt-20">
         <div className="inline-block max-w-5xl justify-center mt-20">
             <span className="font-medium font-unisansheavy text-6xl block mb-4 flex flex-col items-center justify-center">
               About Me
