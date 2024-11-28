@@ -5,11 +5,11 @@ export default function AboutText() {
   return (
     <>
     <RevealOnScroll revealThreshold={0.2}>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 mt-20">
-        <div className="inline-block max-w-5xl justify-center mt-20">
-            <span className="font-medium font-unisansheavy text-6xl block mb-4 flex flex-col items-center justify-center">
-              About Me
-            </span>
+    <section className="flex flex-col items-center justify-center gap-2 mt-16 md:mt-20 md:py-10">
+    <div className="inline-block max-w-5xl justify-center mt-10 py-10">
+      <span className="font-medium font-unisansheavy text-6xl block mb-4 mt-40 lg:mt-10 flex flex-col items-center justify-center">
+        About Me
+      </span>
             <div className="flex flex-col md:flex-row items-center justify-between gap-10 mt-20">
               {/* Left side - Image */}
             
