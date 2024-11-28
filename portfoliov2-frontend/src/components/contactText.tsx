@@ -10,7 +10,7 @@ export default function ContactText({ animationFinished }: ContactTextProps) {
     <>
       {animationFinished && (
         <RevealOnScroll>
-          <section className="flex flex-col md:flex-row w-full max-w-8xl mx-auto gap-16 py-12 mt-40">
+          <section className="flex flex-col md:flex-row w-full max-w-8xl mx-auto gap-16 py-12 mt-20">
             {/* Left Side */}
             <div className="flex-[2.6] flex flex-col justify-start md:justify-center space-y-6 lg:mr-10 text-center md:text-left">
               <h1 className="text-6xl md:text-8xl font-bold mb-5">Contact me here</h1>

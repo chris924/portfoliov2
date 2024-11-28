@@ -58,8 +58,8 @@ export default function RecentProjectText({ setAnimationFinished }: RecentProjec
 
         {revealCompleted && (
           <RevealOnScroll>
-            <div className="justify-center items-center flex flex-row">
-              <span className="tracking-widest font-unisansheavy text-4xl mt-20">Check it out here</span>
+            <div className="justify-center items-center flex flex-row mt-10">
+              <span className="tracking-widest font-unisansheavy text-4xl">Check it out here</span>
               <a href="https://bookitnowproject.vercel.app" target="_blank" rel="noopener noreferrer">
                 <motion.img
                   src="/images/floating-book.png"
@@ -68,10 +68,11 @@ export default function RecentProjectText({ setAnimationFinished }: RecentProjec
                   animate={{
                     x: [-5, 5, -5, 5, 0],
                     transition: {
-                      duration: 0.1,
+                      duration: 1,
                       repeat: Infinity,
                       repeatType: "reverse",
                       ease: "easeInOut",
+                      repeatDelay: 1.5
                     },
                   }}
                 />
