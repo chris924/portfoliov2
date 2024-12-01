@@ -33,7 +33,7 @@ export default function MainText() {
                                      <motion.span
                                          initial={{ opacity: 0, x: -20 }}
                                          animate={{ opacity: 1, x: 0 }}
-                                         transition={{ delay: 0.1, duration: 0.6, ease: "easeOut" }}
+                                         transition={{ delay: 0.5, duration: 0.6, ease: "easeOut" }}
                                          className={title({ class: "tracking-widest font-unisansheavy whitespace-nowrap", size: "xl" })}
                                      >
                                          HEY,&nbsp;
@@ -42,7 +42,7 @@ export default function MainText() {
                                      <motion.span
                                          initial={{ opacity: 0, x: 20 }}
                                          animate={{ opacity: 1, x: 0 }}
-                                         transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
+                                         transition={{ delay: 0.5, duration: 0.6, ease: "easeOut" }}
                                          className={title({ color: "green", size: "xl", class: "tracking-widest font-unisansheavy whitespace-nowrap" })}
                                      >
                                          I'M CHRIS
@@ -60,7 +60,7 @@ export default function MainText() {
                                         <motion.span
                                             initial={{ opacity: 0, x: -20 }}
                                             animate={{ opacity: 1, x: 0 }}
-                                            transition={{ delay: 0.1, duration: 0.6, ease: "easeOut" }}
+                                            transition={{ delay: 0.5, duration: 0.6, ease: "easeOut" }}
                                             className={title({ class: "tracking-widest font-unisansheavy whitespace-nowrap", size: "xl" })}
                                         >
                                             HEY,&nbsp;
@@ -69,7 +69,7 @@ export default function MainText() {
                                         <motion.span
                                             initial={{ opacity: 0, x: 20 }}
                                             animate={{ opacity: 1, x: 0 }}
-                                            transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
+                                            transition={{ delay: 0.5, duration: 0.6, ease: "easeOut" }}
                                             className={title({ color: "green", size: "xl", class: "tracking-widest font-unisansheavy whitespace-nowrap" })}
                                         >
                                             I'M CHRIS
