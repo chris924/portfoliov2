@@ -8,7 +8,7 @@ const FallingBackground = () => {
   initial={{ translateY: '-100%' }}
   animate={{ translateY: '0%' }}
   exit={{ translateY: '100%' }}      
-  transition={{ duration: 0.9, ease: 'easeInOut' }} 
+  transition={{ duration: 0.5 }} 
   style={{
     position: 'fixed',
     top: 0,
