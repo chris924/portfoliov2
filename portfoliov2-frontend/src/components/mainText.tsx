@@ -34,7 +34,7 @@ export default function MainText() {
                                          initial={{ opacity: 0, x: -20 }}
                                          animate={{ opacity: 1, x: 0 }}
                                          transition={{ delay: 0.1, duration: 0.6, ease: "easeOut" }}
-                                         className={title({ class: "tracking-widest font-unisansheavy", size: "xl" })}
+                                         className={title({ class: "tracking-widest font-unisansheavy whitespace-nowrap", size: "xl" })}
                                      >
                                          HEY,&nbsp;
                                      </motion.span>
@@ -43,7 +43,7 @@ export default function MainText() {
                                          initial={{ opacity: 0, x: 20 }}
                                          animate={{ opacity: 1, x: 0 }}
                                          transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-                                         className={title({ color: "green", size: "xl", class: "tracking-widest font-unisansheavy" })}
+                                         className={title({ color: "green", size: "xl", class: "tracking-widest font-unisansheavy whitespace-nowrap" })}
                                      >
                                          I'M CHRIS
                                      </motion.span>
@@ -61,7 +61,7 @@ export default function MainText() {
                                             initial={{ opacity: 0, x: -20 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: 0.1, duration: 0.6, ease: "easeOut" }}
-                                            className={title({ class: "tracking-widest font-unisansheavy", size: "xl" })}
+                                            className={title({ class: "tracking-widest font-unisansheavy whitespace-nowrap", size: "xl" })}
                                         >
                                             HEY,&nbsp;
                                         </motion.span>
@@ -70,7 +70,7 @@ export default function MainText() {
                                             initial={{ opacity: 0, x: 20 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-                                            className={title({ color: "green", size: "xl", class: "tracking-widest font-unisansheavy" })}
+                                            className={title({ color: "green", size: "xl", class: "tracking-widest font-unisansheavy whitespace-nowrap" })}
                                         >
                                             I'M CHRIS
                                         </motion.span>
@@ -83,18 +83,17 @@ export default function MainText() {
                             className={subtitle({ class: "mt-10 tracking-wide font-unisansheavy", size: "xl", color: "foreground" })}
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 1.5, duration: 0.6, ease: "easeInOut" }}
+                            transition={{ delay: 1, duration: 0.6, ease: "easeInOut" }}
                         >
                             Explore
                         </motion.div>
-                        <div className={subtitle({ class: "mt-10 font-unisansheavy text-3xl lg:text-5xl", color: "foreground" })}>
-                        </div>
+                      
 
                         <motion.div
-                            className={subtitle({ class: "mt-10 font-unisansheavy text-3xl lg:text-5xl", color: "foreground" })}
+                            className={subtitle({ class: "mt-10 font-unisansheavy text-3xl lg:text-5xl", color: "foreground", size:"xl" })}
                             initial={{ opacity: 0, x: 50 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 2.5, duration: 0.6, ease: "easeInOut" }}
+                            transition={{ delay: 2, duration: 0.6, ease: "easeInOut" }}
                         >
                          My Work and Passion
                         </motion.div>

@@ -77,7 +77,10 @@ export default function RecentProjectText({ setAnimationFinished }: RecentProjec
                   }}
                 />
               </a>
+              <br></br>
+              
             </div>
+            <span className="tracking-wide font-unisansheavy text-2xl text-red-600">(not running yet)</span>
           </RevealOnScroll>
         )}
       </section>

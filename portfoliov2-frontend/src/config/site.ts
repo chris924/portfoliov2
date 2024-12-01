@@ -7,7 +7,7 @@ export const siteConfig = {
     {
       label: "CV",
       href: "/about"
-    }
+    },
   ],
   navMenuItems: [
     {
@@ -25,5 +25,6 @@ export const siteConfig = {
   ],
   links: {
     github: "https://github.com/chris924",
+    linkedIn: "https://www.linkedin.com/in/krisztofer-burka-756658232/"
   },
 };

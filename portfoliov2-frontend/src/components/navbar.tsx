@@ -18,6 +18,7 @@ import { siteConfig } from "@/config/site";
 //import { ThemeSwitch } from "@/components/theme-switch";
 import {
   GithubIcon,
+  LinkedInIcon,
   SearchIcon,
 } from "@/components/icons";
 import { Logo } from "@/components/icons";
@@ -61,7 +62,7 @@ export const Navbar = () => {
       >
         <Logo />
         
-        <HoverInHackerTyper hoverFrom="up">Chris's Portfolio Site</HoverInHackerTyper>
+        <HoverInHackerTyper hoverFrom="left" delay={3000}>Chris's Portfolio Site</HoverInHackerTyper>
       </Link>
     </NavbarBrand>
     <div className="hidden lg:flex gap-4 justify-start ml-2">
@@ -91,6 +92,9 @@ export const Navbar = () => {
       <Link isExternal href={siteConfig.links.github} title="GitHub">
         <GithubIcon className="text-default-500" />
       </Link>
+      <Link isExternal href={siteConfig.links.linkedIn}>
+      <LinkedInIcon className="text-default-500" />
+    </Link>
      
     </NavbarItem>
 
@@ -100,6 +104,7 @@ export const Navbar = () => {
     <Link isExternal href={siteConfig.links.github}>
       <GithubIcon className="text-default-500" />
     </Link>
+   
  
     <NavbarMenuToggle />
   </NavbarContent>

@@ -17,7 +17,7 @@ export default function CV() {
     <div className="flex justify-center items-center min-h-screen">
       <motion.div
         ref={divRef}
-        className="bg-emerald-200 w-full sm:w-3/4 lg:w-2/3 shadow-lg p-10 rounded-md"
+        className="bg-slate-300 w-full sm:w-3/4 lg:w-2/3 shadow-lg p-10 rounded-md"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
