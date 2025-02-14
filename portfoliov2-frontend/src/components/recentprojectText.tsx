@@ -46,14 +46,22 @@ export default function RecentProjectText({ setAnimationFinished }: RecentProjec
          
         </RevealOnScroll>
 
-        <div className="flex flex-col items-center justify-center text-start lg:h-60 h-30 text-3xl font-mono">
+        <div className="flex flex-col text-start lg:h-60 h-30 text-3xl font-mono">
           <TypewriterEffect 
             onRevealComplete={() => { 
               setRevealCompleted(true); 
               setAnimationFinished(true); 
             }} 
-            text="BookItNow is a modern appointment booking system designed to streamline the process of scheduling appointments for various services. Built with React for a dynamic and responsive frontend, and powered by Java Spring on the backend."
+            text="BookItNow is designed to streamline the process of scheduling appointments for various services."
           />
+          {revealCompleted && (
+             <RevealOnScroll>
+             <div className="self-start text-start mt-8">
+              Built with React, and powered by Java Spring.
+            </div>
+            </RevealOnScroll>
+          )}
+         
         </div>
 
         {revealCompleted && (
