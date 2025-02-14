@@ -2,17 +2,30 @@ import { Link } from "@nextui-org/link";
 
 import { Navbar } from "@/components/navbar";
 import FallingBackground from "@/components/animations/fallingbackground";
+import { useState } from "react";
 
 export default function DefaultLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  
+  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
+
   return (
     <>
-    <FallingBackground/>
-    
-    <div className="relative flex flex-col h-screen ">
+    {!isAnimationComplete ? (
+      <FallingBackground onComplete={() => setIsAnimationComplete(true)}/>
+    ) :
+    <div
+          className="relative flex flex-col min-h-screen"
+          style={{
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundAttachment: "fixed",
+            backgroundImage: "url('/images/darkbg-lowest-res.jpg')",
+          }}
+        >
       <Navbar />
       <main className="container mx-auto max-w-7xl px-6 flex-grow pt-16 ">
         {children}
@@ -27,6 +40,7 @@ export default function DefaultLayout({
         </Link>
       </footer>
     </div>
+    }
     </>
     
   );
