@@ -40,11 +40,11 @@ export default function CV() {
 
         <div className="mt-4">
           <p className="text-sm text-gray-600">
-            <strong><TypewriterEffect text="Cím:" /></strong>{" "}
+            <strong><TypewriterEffect text="Address:" /></strong>{" "}
             <TypewriterEffect text="1116 Budapest" />
           </p>
           <p className="text-sm text-gray-600">
-            <strong><TypewriterEffect text="Születési dátum:" /></strong>{" "}
+            <strong><TypewriterEffect text="Birth date:" /></strong>{" "}
             <TypewriterEffect text="1999. March 04." />
           </p>
           <p className="text-sm text-gray-600">
