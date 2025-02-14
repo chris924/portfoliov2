@@ -24,7 +24,7 @@ const FallingBackground = ({ onComplete }: FallingBackgroundProps) => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
-        zIndex: 50, 
+        zIndex: 0, 
         backgroundImage: "url('/images/darkbg-lowest-res.jpg')",
       }}
     />
