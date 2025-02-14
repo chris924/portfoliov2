@@ -27,10 +27,12 @@ export default function AboutText() {
                 />
               </div>
 
+             
               {/* Right side - Text */}
               <div className="md:w-1/2 flex flex-col self-start text-justify gap-10 mt-20">
+              <RevealOnScroll>
                 <div className="text-5xl font-medium">A Brief intro, who am I</div>
-
+                </RevealOnScroll>
                 <div className="flex flex-col text-base space-y-8 text-3xl">
                   <RevealOnScroll revealThreshold={0.7}>
                     <span className="text-2xl">
