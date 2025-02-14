@@ -8,11 +8,11 @@ interface FallingBackgroundProps {
 const FallingBackground = ({ onComplete }: FallingBackgroundProps) => {
   return (
     <motion.div
-      className="falling-background w-full h-screen will-change-transform"
+      className="falling-background w-full h-screen"
       initial={{ y: "-100%" }}
       animate={{ y: "0%" }}
       exit={{ y: "100%" }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.6 }}
       onAnimationComplete={onComplete}
       style={{
         position: "fixed",
