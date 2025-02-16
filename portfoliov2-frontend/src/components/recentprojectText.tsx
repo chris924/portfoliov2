@@ -65,8 +65,9 @@ export default function RecentProjectText({ setAnimationFinished }: RecentProjec
         </div>
 
         {revealCompleted && (
+          <>
           <RevealOnScroll>
-            <div className="justify-center items-center flex flex-row mt-10">
+            <div className="justify-center items-center flex flex-row mt-5">
               <span className="tracking-widest font-unisansheavy text-4xl">Check it out here</span>
               <a href="https://bookitnowproject.vercel.app" target="_blank" rel="noopener noreferrer">
                 <motion.img
@@ -90,6 +91,59 @@ export default function RecentProjectText({ setAnimationFinished }: RecentProjec
             </div>
             <span className="tracking-wide font-unisansheavy text-2xl text-red-600">(not running yet)</span>
           </RevealOnScroll>
+
+            <RevealOnScroll>
+          <div className="flex flex-row items-center justify-center mt-20 mb-5">
+            <span className={title({ color: "blue", class: "tracking-widest font-unisansheavy text-4xl" })}>
+              CSV Filter
+            </span>        
+          </div>
+          </RevealOnScroll>
+          <RevealOnScroll>
+          <div className="mb-5">
+            <img
+              src="/images/csv-filter-icon.png"
+              alt="CSV Filter"
+              className="object-scale-down w-150 h-150"
+            />
+          </div>
+          </RevealOnScroll>
+          
+          <RevealOnScroll>
+          <div className="flex flex-col text-start lg:h-60 h-30 text-3xl font-mono">
+          Parsing multiple CSV files with various conditions (e.g., contains, does not contain, greater than, less than, etc.).
+            <div className="self-start text-start mt-8">
+            Built with React, and powered by Python Flask.
+            </div>
+           </div>
+          </RevealOnScroll>
+
+          <RevealOnScroll>
+            <div className="justify-center items-center flex flex-row mt-5">
+              <span className="tracking-widest font-unisansheavy text-4xl">Check it out here</span>
+              <a href="" target="_blank" rel="noopener noreferrer">
+                <motion.img
+                  src="/images/filtering-icon.png"
+                  alt="Book"
+                  className="object-scale-down h-28 w-28 brightness-200"
+                  animate={{
+                    x: [-5, 5, -5, 5, 0],
+                    transition: {
+                      duration: 1,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      ease: "easeInOut",
+                      repeatDelay: 1.5
+                    },
+                  }}
+                />
+              </a>
+              <br></br>
+              
+            </div>
+            <span className="tracking-wide font-unisansheavy text-2xl text-red-600">(not running yet)</span>
+          </RevealOnScroll>
+          </>
         )}
       </section>
     </>

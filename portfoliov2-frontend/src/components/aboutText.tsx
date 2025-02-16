@@ -7,7 +7,7 @@ export default function AboutText() {
     <>
      
         <section className="flex flex-col items-center justify-center gap-2 mt-16 md:mt-20 md:py-10">
-          <div className="inline-block max-w-5xl justify-center mt-10 py-10">
+          <div className="inline-block max-w-5xl justify-center mt-16 py-10">
             <RevealOnScroll revealThreshold={0.5}>
             <span className="font-medium font-unisansheavy text-6xl block mb-20 mt-40 lg:mt-10 flex flex-col items-center justify-center
               transform translate-y-10 transition-all duration-700 ease-out reveal-in-view pb-10">
