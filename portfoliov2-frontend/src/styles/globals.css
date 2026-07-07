@@ -13,7 +13,12 @@
     }
   }
 
-
+  @media (max-width: 768px) {
+    .falling-background {
+      background-attachment: scroll !important;
+    }
+  }
+  
 body { 
   background-image: url('/images/bg.jpg'); 
   background-position: center; 
