@@ -1,6 +1,6 @@
 import React, { Suspense, useRef, useState, useEffect } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { OrbitControls, useGLTF, useAnimations } from '@react-three/drei';
+import { Canvas, useThree, ThreeEvent } from '@react-three/fiber';
+import { useGLTF, useAnimations } from '@react-three/drei';
 import * as THREE from 'three';
 import { motion } from 'framer-motion';
 import '../../styles/globals.css';
@@ -11,133 +11,45 @@ interface ModelProps {
   onClick: () => void;
 }
 
-
-
-
-
-
-const Sparks = () => {
-  const particlesRef = useRef<THREE.Points>(null);
-  const particleCount = 3;
-  const texture = new THREE.TextureLoader().load("/images/spark_test1.png");
-
-  const particles = new Float32Array(particleCount * 3);
-  const velocities = new Float32Array(particleCount * 3);
-  const gravity = -0.05;
-  const minHorizontalSpeed = 1;
-
-  let timeInterval = 5;
-
-  useEffect(() => {
-    for (let i = 0; i < particleCount; i++) {
-
-
-
-      // positions
-      particles[i * 3] = 0; // X
-      particles[i * 3 + 1] = 0; // Y
-  
-
-      
-
-      //  velocities
-     velocities[i * 3] = Math.random() * 2 - 1; // X 
-
-       
-
-      if (Math.abs(velocities[i * 3]) < minHorizontalSpeed) {
-        velocities[i * 3] = velocities[i * 3] < 0 ? -minHorizontalSpeed : minHorizontalSpeed;
-      }
-
-
-      velocities[i * 3 + 1] = Math.random() * 2 - 1; // Y
-   
-      
-    }
-  }, []);
-
-  useFrame(async (state) => {
-    const particlesArray = particlesRef.current?.geometry.attributes.position.array;
-    const now = state.clock.getElapsedTime();
-
-   
-
-    if (particlesArray) {
-      for (let i = 0; i < particlesArray.length; i += 3) {
-       
-        
-            particlesArray[i] += velocities[i] * 0.1; //  speed
-            particlesArray[i + 1] += velocities[i + 1] * 0.1;  // speed
-         
-
-            velocities[i + 1] += gravity; // Reduce Y velocity due to gravity
-
-
-            velocities[i] *= 0.99; // Damping
-            velocities[i + 1] *= 0.99; // Damping
-
-         
-           
-            if (now >= timeInterval) {
-              // Reset particles and velocities
-              for (let j = 0; j < particlesArray.length; j += 3) {
-                particlesArray[j] = 0; // Reset X position
-                particlesArray[j + 1] = 0; // Reset Y position
-                
-                velocities[j] = Math.random() * 2 - 1; // Reset X velocity
-
-                if (Math.abs(velocities[j]) < minHorizontalSpeed) {
-                  velocities[j] = velocities[j] < 0 ? -minHorizontalSpeed : minHorizontalSpeed;
-                }
-
-
-                velocities[j + 1] = Math.random() * 2 - 1; // Reset Y velocity
-                
-              }
-              timeInterval += 5;         
-            }
-      }
-
-      if (particlesRef.current?.geometry?.attributes?.position) {
-        particlesRef.current.geometry.attributes.position.needsUpdate = true;
-      }
-
-    }
-  });
-
-  return (
-    <points ref={particlesRef}>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" array={particles} itemSize={3} count={particles.length / 3} />
-      </bufferGeometry>
-      <pointsMaterial
-       size={1}
-       map={texture}
-       transparent
-       opacity={1}
-       sizeAttenuation
-       color={0xf3ff33}
-       depthWrite={false} />
-    </points>
-  );
-};
-
-
 const Model: React.FC<ModelProps> = ({ url, onClick }) => {
   const group = useRef<THREE.Group>(null);
+  const triggered = useRef(false);
   const { scene, animations } = useGLTF(url);
   const { actions } = useAnimations(animations, group);
+  const { invalidate, clock } = useThree();
 
-  const handleClick = () => {
-    if (actions && actions[Object.keys(actions)[0]]) {
-      const action = actions[Object.keys(actions)[0]];
+  // Render once the model has loaded (required under frameloop="demand").
+  useEffect(() => {
+    invalidate();
+  }, [scene, invalidate]);
 
-      if (action) {
-        action.setLoop(THREE.LoopOnce, 0);
-        action.clampWhenFinished = true;
-        action.setDuration(0.39); // Duration for the animation
-        action.reset().play();
-      }
+  const handleClick = (e: ThreeEvent<MouseEvent>) => {
+    // A tap raycasts through every mesh in the model, firing this once per
+    // mesh. Stop propagation and guard so the lever triggers exactly once.
+    e.stopPropagation();
+    if (triggered.current) return;
+    triggered.current = true;
+
+    const action = actions[Object.keys(actions)[0]];
+
+    if (action) {
+      action.setLoop(THREE.LoopOnce, 0);
+      action.clampWhenFinished = true;
+      action.setDuration(0.39); // Duration for the animation
+      action.reset().play();
+
+      // Discard the wall-clock time accumulated while idle under demand mode,
+      // so the first animation frame gets a normal delta instead of jumping
+      // the whole clip to the end.
+      clock.getDelta();
+
+      // Under demand rendering, pump frames only for the pull's duration.
+      const end = performance.now() + 500;
+      const tick = () => {
+        invalidate();
+        if (performance.now() < end) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
     }
     onClick();
   };
@@ -161,52 +73,77 @@ interface LevelViewerProps {
 }
 
 const LevelViewer: React.FC<LevelViewerProps> = ({ modelUrl, onLeverTrigger }) => {
-  const leverAudio = '/sounds/leverpull.mp3';
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [audioLoaded, setAudioLoaded] = useState(false);
-  // @ts-ignore
-  const [textVisible, setTextVisible] = useState(false);
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const bufferRef = useRef<AudioBuffer | null>(null);
   const [isLeverVisible, setLeverVisible] = useState(true);
-  // @ts-ignore
-  const [glowVisible, setGlowVisible] = useState(false); // New state for glow effect
+  // Keep the WebGL context alive only until the lever has faded out.
+  const [canvasMounted, setCanvasMounted] = useState(true);
 
   useEffect(() => {
-    const audioInstance = new Audio(leverAudio);
-    audioInstance.preload = 'auto';
+    // Play through the iOS hardware mute switch (Safari 16.4+) by using the
+    // "playback" audio session category instead of the default "ambient".
+    const nav = navigator as Navigator & { audioSession?: { type: string } };
+    if (nav.audioSession) {
+      nav.audioSession.type = 'playback';
+    }
 
-    const handleCanPlayThrough = () => {
-      setAudioLoaded(true);
-      audioRef.current = audioInstance;
+    const AudioCtx =
+      window.AudioContext ||
+      (window as unknown as { webkitAudioContext: typeof AudioContext })
+        .webkitAudioContext;
+    const ctx = new AudioCtx();
+    audioCtxRef.current = ctx;
+
+    // Fetch + decode the clip once so it's ready to fire instantly.
+    let cancelled = false;
+    fetch('/sounds/leverpull.mp3')
+      .then((res) => res.arrayBuffer())
+      .then((data) => ctx.decodeAudioData(data))
+      .then((decoded) => {
+        if (!cancelled) bufferRef.current = decoded;
+      })
+      .catch(() => {});
+
+    // Mobile browsers keep the AudioContext "suspended" until a user gesture.
+    // Resume it on the first touch/click so the lever sound is unlocked.
+    const unlock = () => {
+      if (ctx.state === 'suspended') ctx.resume();
     };
-
-    audioInstance.addEventListener('canplaythrough', handleCanPlayThrough);
+    window.addEventListener('pointerdown', unlock, { once: true });
+    window.addEventListener('touchstart', unlock, { once: true });
 
     return () => {
-      if (audioInstance) {
-        audioInstance.removeEventListener('canplaythrough', handleCanPlayThrough);
-        audioInstance.pause();
-        audioInstance.src = '';
-      }
+      cancelled = true;
+      window.removeEventListener('pointerdown', unlock);
+      window.removeEventListener('touchstart', unlock);
+      ctx.close();
     };
-  }, [leverAudio]);
+  }, []);
 
-  
+
   const handleModelClick = () => {
-    if (audioLoaded && audioRef.current) {
-      const audio = audioRef.current;
-      audio.currentTime = 2;
-      audio.play();
+    const ctx = audioCtxRef.current;
+    const buffer = bufferRef.current;
+
+    if (ctx && buffer) {
+      const startSound = () => {
+        const source = ctx.createBufferSource();
+        source.buffer = buffer;
+        source.connect(ctx.destination);
+        source.start(0, 2); // play from 2s in
+      };
+
+      // iOS resumes asynchronously; play only once the context is running,
+      // otherwise start() on a suspended context is silently dropped.
+      if (ctx.state === 'running') {
+        startSound();
+      } else {
+        ctx.resume().then(startSound).catch(() => {});
+      }
     }
 
     onLeverTrigger();
-    setTextVisible(true);
     setLeverVisible(false);
-    setGlowVisible(true); // Trigger glow effect
-
-    // Remove glow effect after 2 seconds
-    setTimeout(() => {
-      setGlowVisible(false);
-    }, 2000);
   };
 
   return (
@@ -214,20 +151,23 @@ const LevelViewer: React.FC<LevelViewerProps> = ({ modelUrl, onLeverTrigger }) =
       <div className="canvas-container">
         <motion.div
           className="canvas-container"
-          initial={{ opacity: 1}}
+          initial={{ opacity: 1 }}
           animate={{ opacity: isLeverVisible ? 1 : 0 }}
           transition={{ duration: 3 }}
+          onAnimationComplete={() => {
+            if (!isLeverVisible) setCanvasMounted(false);
+          }}
         >
-          <Canvas>
-            <ambientLight intensity={1} />
-            <directionalLight position={[10, 10, 5]} intensity={1} />
-            <Suspense fallback={null}>
-              <Model url={modelUrl}onClick= {handleModelClick} />
-              <Sparks />
-            </Suspense>
-            <OrbitControls enableRotate={false} enableZoom={false} />
-            <CameraSetup />
-          </Canvas>
+          {canvasMounted && (
+            <Canvas frameloop="demand" dpr={[1, 1.5]}>
+              <ambientLight intensity={1} />
+              <directionalLight position={[10, 10, 5]} intensity={1} />
+              <Suspense fallback={null}>
+                <Model url={modelUrl} onClick={handleModelClick} />
+              </Suspense>
+              <CameraSetup />
+            </Canvas>
+          )}
         </motion.div>
       </div>
     </div>
