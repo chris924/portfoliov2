@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import LeverViewer from "./components/animations/leverviewer";
+import PullCord from "./components/PullCord";
 
 function Typewriter({ text, speed = 110 }: { text: string; speed?: number }) {
   const [count, setCount] = useState(0);
@@ -42,6 +43,8 @@ function App() {
           )}
         </AnimatePresence>
       </div>
+
+      <AnimatePresence>{triggered && <PullCord />}</AnimatePresence>
     </div>
   );
 }

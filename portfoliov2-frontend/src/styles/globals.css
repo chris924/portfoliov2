@@ -49,6 +49,44 @@ body,
   }
 }
 
+/* Pull cord anchored to the top-right corner. The line runs up past the top
+   edge so pulling it down looks like more cord feeds out. */
+.cord-wrapper {
+  position: fixed;
+  top: -150px;
+  right: 48px;
+  z-index: 4000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cord {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: grab;
+  touch-action: none; /* allow vertical drag on touch without scrolling */
+}
+
+.cord:active {
+  cursor: grabbing;
+}
+
+.cord-line {
+  width: 2px;
+  height: 240px;
+  background: #cfcfcf;
+}
+
+.cord-bead {
+  width: 13px;
+  height: 30px;
+  border-radius: 7px;
+  background: #cfcfcf;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
 @media (max-width: 768px) {
   .falling-background {
     background-attachment: scroll !important;
