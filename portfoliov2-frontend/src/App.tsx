@@ -24,6 +24,11 @@ function Typewriter({ text, speed = 110 }: { text: string; speed?: number }) {
 
 function App() {
   const [triggered, setTriggered] = useState(false);
+  const [pulled, setPulled] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", !pulled);
+  }, [pulled])
 
   return (
     <div className="fullscreen-container">
@@ -44,7 +49,7 @@ function App() {
         </AnimatePresence>
       </div>
 
-      <AnimatePresence>{triggered && <PullCord />}</AnimatePresence>
+      <AnimatePresence>{triggered && <PullCord onPull={() => setPulled((p) => !p)} />}</AnimatePresence>
     </div>
   );
 }

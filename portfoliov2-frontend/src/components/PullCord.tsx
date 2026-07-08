@@ -7,7 +7,7 @@ interface PullCordProps {
 }
 
 // How far you must pull before it counts as a "pull", and the max travel.
-const THRESHOLD = 38;
+const THRESHOLD = 22;
 const PULL_MAX = 30;
 
 export default function PullCord({ onPull }: PullCordProps) {
@@ -30,20 +30,16 @@ export default function PullCord({ onPull }: PullCordProps) {
         dragConstraints={{ top: 0, bottom: PULL_MAX }}
         dragElastic={{top: 0.2, bottom: 0.1}}
         dragSnapToOrigin
+        onPointerDown={() => { pulled.current = false; }}
         onDrag={(_e, info) => {
-          // Fire once, mid-pull, when it passes the threshold.
           if (!pulled.current && info.offset.y > THRESHOLD) {
             pulled.current = true;
             onPull?.();
           }
         }}
-        onDragEnd={() => {
-          pulled.current = false;
-        }}
-        onTap={() => onPull?.()}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
+        onTap={() => {
+          if (!pulled.current) {
+            pulled.current = true;
             onPull?.();
           }
         }}
