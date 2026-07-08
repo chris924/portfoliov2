@@ -59,6 +59,7 @@ body,
   display: flex;
   flex-direction: column;
   align-items: center;
+  touch-action: none;
 }
 
 .cord {
@@ -66,6 +67,7 @@ body,
   flex-direction: column;
   align-items: center;
   cursor: grab;
+  padding: 0 18px;
   touch-action: none; /* allow vertical drag on touch without scrolling */
 }
 

@@ -10,11 +10,6 @@ interface PullCordProps {
 const THRESHOLD = 38;
 const PULL_MAX = 30;
 
-/**
- * A 2D pull chain anchored to the top-right corner. Drag it down (or tap it)
- * and it springs back like a real light-switch cord. Self-contained visual —
- * wire `onPull` up to whatever you want later.
- */
 export default function PullCord({ onPull }: PullCordProps) {
   const pulled = useRef(false);
 
@@ -33,7 +28,7 @@ export default function PullCord({ onPull }: PullCordProps) {
         aria-label="Pull cord"
         drag="y"
         dragConstraints={{ top: 0, bottom: PULL_MAX }}
-        dragElastic={0.5}
+        dragElastic={{top: 0.2, bottom: 0.1}}
         dragSnapToOrigin
         onDrag={(_e, info) => {
           // Fire once, mid-pull, when it passes the threshold.
