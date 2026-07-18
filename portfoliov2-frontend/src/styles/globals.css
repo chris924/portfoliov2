@@ -30,8 +30,20 @@ body,
   transition: background-color 0.8s ease, color 0.8s ease;
 }
 
+/* First screen: lever + hero text. Position: relative so .overlay-center can
+   be absolutely (not fixed-viewport) positioned within it and scroll away
+   with the page once the rest of the content is revealed. */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background: radial-gradient(circle at 50% 40%, var(--bg-glow) 0%, var(--bg) 70%);
+  transition: background 0.4s ease;
+  overflow: hidden;
+}
+
 .overlay-center {
-  position: fixed;
+  position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
@@ -39,6 +51,33 @@ body,
   padding: 1.5rem;
   pointer-events: none;
   z-index: 3000;
+}
+
+.overlay-center > * {
+  pointer-events: auto;
+}
+
+/* Sections revealed below the hero once the lever is triggered. */
+.content-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.section-heading {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin: 0 0 1.5rem;
+  color: var(--fg);
 }
 
 .wip-text {
@@ -66,10 +105,161 @@ body,
   }
 }
 
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.hero-tagline {
+  margin: 0;
+  color: var(--fg);
+  opacity: 0.75;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+  letter-spacing: 0.02em;
+}
+
+.hero-arrows {
+  display: flex;
+  gap: clamp(1.5rem, 5vw, 3rem);
+  margin-top: 1rem;
+}
+
+.hero-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  color: var(--fg);
+  cursor: pointer;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.hero-arrow:hover {
+  opacity: 1;
+  transform: translateY(3px);
+}
+
+.hero-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Projects */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.project-card {
+  border: 1px solid var(--fg);
+  border-radius: 10px;
+  padding: 1.25rem;
+  background: color-mix(in srgb, var(--bg-glow) 60%, transparent);
+  transition: border-color 0.4s ease, background 0.4s ease;
+}
+
+.project-card h3 {
+  margin: 0 0 0.5rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 1.05rem;
+}
+
+.project-card p {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  line-height: 1.4;
+}
+
+.project-card .project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-card .project-tags span {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+}
+
+.project-card a {
+  color: var(--fg);
+  font-size: 0.85rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Contact form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--fg);
+  background: color-mix(in srgb, var(--bg-glow) 60%, transparent);
+  border: 1px solid var(--fg);
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--cord);
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form button {
+  align-self: flex-start;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  color: var(--bg);
+  background: var(--fg);
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.4rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.contact-form button:hover {
+  opacity: 0.85;
+}
+
 /* Pull cord anchored to the top-right corner. The line runs up past the top
    edge so pulling it down looks like more cord feeds out. */
 .cord-wrapper {
-  position: fixed;
+  position: absolute;
   top: -150px;
   right: 48px;
   z-index: 4000;
